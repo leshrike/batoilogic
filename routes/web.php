@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 /* Ruta del Home de Batoilogic  */
 
+
+Route::resource('order','orderController');
+
+Route::resource('provider','providerController');
+
+Route::resource('User','userController');
+
+Route::resource('product','productController');
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -22,19 +31,19 @@ Route::get('/', function () {
 
 /** Rutas de pedidos Batoilogic */
 
-Route::get('/pedidos','OrdersController@index');
+Route::get('/pedidos','orderController@index');
 
 /** Rutas de proveedores Batoilogic */
 
-Route::get('/proveedores','ProvidersController@index');
+Route::get('/proveedores','providerController@index');
 
 /** Rutas de productos Batoilogic */
 
-Route::get('/productos','ProductsController@index');
+Route::get('/productos','productController@index');
 
 
 
-Route::resource('product','ProductsController');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
