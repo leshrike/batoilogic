@@ -7,13 +7,17 @@
 </head>
 
 <html>
+    
     <head>
             <title>@yield('titulo')</title>
     </head>
     <body>
-            @include('partials.nav')
+        @include('partials.nav')
+        <span>
             @yield('contenido')
-    </body>     
+        </span>
+    </body>
+
     <footer>
            @include('partials.footer')
     </footer>

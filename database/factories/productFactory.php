@@ -27,13 +27,12 @@ class productFactory extends Factory
         return [
             
             'provider_id'=> provider::inRandomOrder()->value('id'),
-            'name'=>$this->faker->name(),
-            'description'=>$this->faker->realText(140),
+            'name'=>$this->faker->word(),
+            'description'=>$this->faker->realText(200),
             'price'=>$this->faker->numberBetween(2,200),
             'stock'=>$this->faker->numberBetween(0,100),
             'active'=>$this->faker->randomElement([true,false]),
-            'photo'=>$this->faker->imageUrl(600,400),
-
+            'photo'=>"https://via.placeholder.com/640",
         ];
     }
 }
