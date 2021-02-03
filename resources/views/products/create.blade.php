@@ -4,8 +4,6 @@
 @endsection
 @section('contenido')
 
-   
-    
     <div class="container my-8 mx-auto px-4 md:px-12">
 
     <h1 class="text-3xl font-bold">Crear producto</h1>
@@ -19,7 +17,7 @@
 
             <label class="block text-gray-700 inline-flex">Nombre del producto</label>
 
-            <input class="form-input mt-1 block w-full" placeholder="nombre de producto" type="text"></input>
+            <input name="name" id="name" class="form-input mt-1 block w-full" placeholder="nombre de producto" type="text"></input>
     
         </div>
         
@@ -29,7 +27,7 @@
 
             <label class="inline-flex text-gray-700">Descripcion del producto</label>
 
-            <textarea rows="10" cols="100">{{ old("description") }}</textarea>
+            <textarea id="description" name="description" rows="10" cols="100">{{ old("description") }}</textarea>
 
         </div>
 
@@ -39,14 +37,14 @@
 
             <label class="block inline-flex text-gray-700">Precio del producto:</label>
 
-            <input class="" type="text"></input>
+            <input id="price" name="price" class="" type="number"></input>
 
         </div>
 
         <!-- Formulario Stock -->
         <div class="mt-4">
 
-            <label class="block inline-flex text-gray-700">Stock:</label>
+            <label id="stock" name="stock" class="block inline-flex text-gray-700">Stock:</label>
 
             <input class="" type="number"></input>
 
@@ -58,12 +56,12 @@
             <label class="text-gray-700 inline-flex">¿Está disponible?</label>
 
             <div class="mt-2">
-                <input type="radio" class="form-radio" name="activo" value="1">
+                <input type="radio" class="form-radio" name="active" value="1">
                 <span class="ml-2"> Disponible </span>
             </div>
 
             <div class="mt-2">
-                <input type="radio" class="form-radio" name="activo" value="0">
+                <input type="radio" class="form-radio" name="active" value="0">
                 <span class="ml-2"> No disponible </span>
             </div>
 
@@ -75,7 +73,7 @@
 
             <label class="text-gray-700">Proveedores:</label>
 
-            <select class="form-select mt-1 block w-full">
+            <select name="id_provider" id="id_provider" class="form-select mt-1 block w-full">
             
                     <option>---Selecciona un proveedor---</option>
                 @forelse($proveedores as $proveedor)
@@ -91,8 +89,13 @@
 
         <div class="block mt-4">
 
-            <label class="text-grey-700">Imagen del producto</label>
+            <label  id="chooseFile" class="text-grey-700">Selecciona una imagen para el producto</label>
+            
             <!-- Botón para añadir imagen -->
+
+            <input type="file" name="photo" id="photo" class="custom-file-input">
+
+
 
         </div>
         <input type="submit" class="object-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">

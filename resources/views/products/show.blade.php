@@ -34,5 +34,5 @@
             <a class="object-left bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/productos/{{$product->id}}/eliminar">Eliminar el Producto</a>
         </div>
     </div>
-
+    
 @endsection

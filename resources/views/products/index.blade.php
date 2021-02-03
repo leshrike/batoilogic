@@ -7,11 +7,12 @@ use App\Models\provider;
     Productos
 @endsection
 
-@section('contentido')
+@section('contenido')
 
     <div class="container my-12 mx-auto px-4 md:px-12">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             @forelse($products as $product)
+                
                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                     <article class="overflow-hidden rounded-lg shadow-lg">
                         <a href="/productos/{{ $product->id }}">
@@ -35,8 +36,8 @@ use App\Models\provider;
             @empty
                 <p>No se han encontrado productos</p>
             @endforelse
+
         </div>
     </div>
-    
 @endsection
 

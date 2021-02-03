@@ -41,6 +41,20 @@ Route::get('/', function () {
 
 Route::get('/pedidos','orderController@index');
 
+Route::get('/pedidos/{id}','orderController@show'); //mostrar un proveedor
+
+Route::get('/pedidos/crear','orderController@create'); // crear un proveedor nuevo
+
+Route::get('/pedidos/{id}/editar','orderController@edit'); //editar un proveedor
+
+Route::delete('/pedidos/{id}/eliminar','orderController@destroy');//eliminar un proveedor
+
+Route::put('/pedidos/{id}/update','orderController@update'); //efectuar la actualizacion de los datos de un proveedor
+
+
+
+
+
 /** Rutas de proveedores Batoilogic */
 
 Route::get('/proveedores','providerController@index'); //mostrar la lista de proveedores
@@ -54,8 +68,6 @@ Route::get('/proveedores/{id}/editar','providerController@edit'); //editar un pr
 Route::delete('/proveedores/{id}/eliminar','providerController@destroy');//eliminar un proveedor
 
 Route::put('/proveedores/{id}/update','providerController@update'); //efectuar la actualizacion de los datos de un proveedor
-
-
 
 
 /** PRODUCTOS --- Batoilogic */

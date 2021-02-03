@@ -25,7 +25,7 @@ class providerController extends Controller
         $provider = new provider();
 
         $provider->name = $request->name;
-        $provider->logo = $request->logo;
+        $product($id)->logo = $request->logo->storePubliclyAs('images','s3');
         $provider->email = $request->email;
         $provider->phone = $request->phone;
 
@@ -48,7 +48,7 @@ class providerController extends Controller
         $provider = provider::findOrFail($id);
         
         $provider($id)->name = $request->name;
-        $provider($id)->logo = $request->logo;
+        $product($id)->logo = $request->logo->storePubliclyAs('images','s3');
         $provider($id)->email = $request->email;
         $provider($id)->phone = $request->phone;
 

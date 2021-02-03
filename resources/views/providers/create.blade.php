@@ -19,7 +19,7 @@
 
             <label class="block text-gray-700 inline-flex">Nombre del proveedor</label>
 
-            <input class="form-input mt-1 block w-full" placeholder="nombre de proveedor" type="text"></input>
+            <input id="name" name="name" class="form-input mt-1 block w-full" placeholder="nombre de proveedor" type="text"></input>
     
         </div>
         
@@ -29,7 +29,7 @@
 
             <label class="inline-flex text-gray-700">Email</label>
 
-           <input class="form-input mt-1 block w-full" type="email" placeholder="ejemplo@ejemplo.com"></input>
+           <input id="email" name="email" class="form-input mt-1 block w-full" type="email" placeholder="ejemplo@ejemplo.com"></input>
 
         </div>
 
@@ -39,7 +39,7 @@
 
             <label class="block inline-flex text-gray-700">Telefono de contacto</label>
 
-            <input class="number" type="text"></input>
+            <input id="phone" name="phone" class="number" type="text"></input>
 
         </div>
 
@@ -47,8 +47,9 @@
 
         <div class="block mt-4">
 
-            <label class="text-grey-700">Imagen del producto</label>
+            <label class="text-grey-700">Imagen del proveedor</label>
             <!-- Botón para añadir imagen -->
+            <input type="file" name="logo" id="logo" class="custom-file-input">
 
         </div>
         <input type="submit" class="object-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">

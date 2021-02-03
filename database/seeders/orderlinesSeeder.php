@@ -16,6 +16,6 @@ class orderlinesSeeder extends Seeder
     
     public function run()
     {
-        orderline::factory()->count(10)->create();
+        orderline::factory()->create();
     }
 }

@@ -12,14 +12,21 @@
             <title>@yield('titulo')</title>
     </head>
     <body>
+    
         @include('partials.nav')
+        
         <span>
+    
             @yield('contenido')
+    
         </span>
+    
     </body>
 
     <footer>
+    
            @include('partials.footer')
+    
     </footer>
 
 </html>

@@ -28,7 +28,7 @@ class orderlineFactory extends Factory
         return [
             //Seleccionaremos cualquier id resultante de la ejecucion de la factoria cuando creemos nuestra order line
 
-            'order_id'=> order::inRandomOrder()->value('id'),
+            
             'product_id'=> product::inRandomOrder()->value('id'),
             'quantity'=>$this->faker->numberBetween(1,9),
 

@@ -29,8 +29,9 @@ class productController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->active = $request->active;
-        $product->photo = $request->photo;
-
+        $product->photo = $request->photo->storePubliclyAs('images','s3');
+        $product->id_provider = $request->photo->id_provider;
+        
         $product()->save();
         return redirect('/productos');
     }
@@ -55,8 +56,7 @@ class productController extends Controller
         $product($id)->email = $request->email;
         $product($id)->phone = $request->phone;
         $product($id)->active = $request->active;
-        $product($id)->photo = $request->photo;
-
+        $product($id)->photo = $request->photo->storePubliclyAs('images','s3');
         $product()->save();
         $proveedor = provider::find($product->provider_id);
         return redirect('/productos/{id}',compact('product','proveedor'));

@@ -24,9 +24,8 @@ class orderFactory extends Factory
     public function definition()
     {
         return [
-            
-            'dealer_id'=> User::inRandomOrder()->value('id'),
-            'client_id'=> User::inRandomOrder()->value('id'),
+            'dealer_id'=> User::inRandomOrder()->where('role',"dealer")->value('id'),
+            'client_id'=> User::inRandomOrder()->where('role',"user")->value('id'),
             'order'=>$this->faker->numberBetween(1,15),
             'state_id'=> state::inRandomOrder()->value('id'),
         ];

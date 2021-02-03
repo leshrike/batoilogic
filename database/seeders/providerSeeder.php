@@ -17,6 +17,6 @@ class providerSeeder extends Seeder
     
     public function run()
     {
-        provider::factory()->count(3)->create();
+        provider::factory()->count(10)->create();
     }
 }
