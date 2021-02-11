@@ -10,7 +10,7 @@
 
     <h1 class="text-3xl font-bold">Editar el producto {{ $product->id }}</h1>
     
-    <form action="{{ route('product.update') }}" method="PUT">
+    <form action="/productos/{{ $product->id }}/update" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         
@@ -95,7 +95,7 @@
             
                 <!-- Botón para añadir imagen -->
             
-            <input type="file" id="photo" name="file" id="photo" class="custom-file-input">
+            <input type="file" id="photo" name="photo" class="custom-file-input">
 
         </div>
         <input type="submit" class="object-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">

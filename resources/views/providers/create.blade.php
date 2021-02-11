@@ -10,7 +10,7 @@
 
     <h1 class="text-3xl font-bold">Añadir un proveedor</h1>
     
-    <form action="{{ route('provider.state') }}" method="POST">
+    <form action="{{ route('provider.store') }}" method="POST">
     @csrf
     @method('POST')
         

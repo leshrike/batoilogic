@@ -7,7 +7,7 @@
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <!-- Imagen del proveedor -->
             <div class="my-1 px-2 w-full md:w-1/2 lg:px-3 lg:w-1/3">
-                <img alt="{{ $provider->name }}" src="{{ $provider->logo }}" name="provider_photo" >
+                <img alt="{{ $provider->name }}" src="/storage/{{ $provider->logo }}" name="provider_photo" >
             </div>
             <!-- Campos varios del proveedor -->
             <div class="my-1 px-2 w-full md:w-1/2 lg:px-3 lg:w-1/3">

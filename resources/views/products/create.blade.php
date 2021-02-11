@@ -8,7 +8,7 @@
 
     <h1 class="text-3xl font-bold">Crear producto</h1>
     
-    <form action="{{ route('product.update') }}" method="POST">
+    <form action="{{ route('product.store') }}" method="POST">
     @csrf
     @method('POST')
         

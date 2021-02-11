@@ -32,7 +32,7 @@ class productFactory extends Factory
             'price'=>$this->faker->numberBetween(2,200),
             'stock'=>$this->faker->numberBetween(0,100),
             'active'=>$this->faker->randomElement([true,false]),
-            'photo'=>"https://via.placeholder.com/640",
+            'photo'=>"/images/640.png",
         ];
     }
 }

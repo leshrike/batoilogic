@@ -1,11 +1,8 @@
 @extends('plantilla')
-
 @section('titulo')
     Mostrar todos los pedidos
 @endsection
-
 @section('contenido')
-<a href="/pedidos/crear" class=" float-right bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Añadir pedido</a>
 <div class="flex-flex-col">
 <div class="container mx-auto">
     <div class="flex-flex-col">
@@ -29,6 +26,7 @@
                 </th>
                 </tr>
             </thead>
+
             <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($orders as $order)
                 <tr>

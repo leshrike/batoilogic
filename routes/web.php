@@ -13,46 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Ruta del middleware */
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-/* Ruta de los recursos -- Controladores */
-
-Route::resource('order','orderController');
-
-Route::resource('provider','providerController');
-
-Route::resource('User','userController');
-
-Route::resource('product','productController');
-
-
-
 /* Ruta del Home de Batoilogic  */
 
-Route::get('/', function () {
+// Route::middleware(['auth:sanctum','verified'])->get('/', function () {return view('home');})->name('home');
+
+Route::get('/', function() {
     return view('home');
-})->name('home');
+    });
 
 /** Rutas de pedidos Batoilogic */
 
-Route::get('/pedidos','orderController@index');
+Route::get('/pedidos','orderController@index'); //mostrar todos los pedidos
 
-Route::get('/pedidos/{id}','orderController@show'); //mostrar un proveedor
+Route::get('/pedidos/{id}','orderController@show'); //mostrar un pedido
 
-Route::get('/pedidos/crear','orderController@create'); // crear un proveedor nuevo
+Route::get('/pedidos/crear','orderController@create'); // crear un pedido nuevo
 
-Route::get('/pedidos/{id}/editar','orderController@edit'); //editar un proveedor
+Route::get('/pedidos/{id}/editar','orderController@edit'); //editar un pedido
 
-Route::delete('/pedidos/{id}/eliminar','orderController@destroy');//eliminar un proveedor
+Route::delete('/pedidos/{id}/eliminar','orderController@destroy');//eliminar un pedido
 
-Route::put('/pedidos/{id}/update','orderController@update'); //efectuar la actualizacion de los datos de un proveedor
-
-
-
+Route::put('/pedidos/{id}/update','orderController@update'); //efectuar la actualizacion de los datos de un pedido
 
 
 /** Rutas de proveedores Batoilogic */
@@ -69,7 +50,6 @@ Route::delete('/proveedores/{id}/eliminar','providerController@destroy');//elimi
 
 Route::put('/proveedores/{id}/update','providerController@update'); //efectuar la actualizacion de los datos de un proveedor
 
-
 /** PRODUCTOS --- Batoilogic */
 
 Route::get('/productos','productController@index'); //mostrar lista de productos
@@ -84,3 +64,17 @@ Route::delete('/productos/{id}/eliminar','productController@destroy');//eliminar
 
 Route::put('/productos/{id}/update','productController@update'); //efectuar la actualizacion de los datos de un producto
 
+
+/** USUARIOS --- Batoilogic */
+
+Route::get('/usuarios','userController@index'); //mostrar lista de usuarios
+
+Route::get('/usuario/{id}','userController@show'); //mostrar un usuario
+
+Route::get('/usuario/crear','userController@create'); // crear un usuario nuevo
+
+Route::get('/usuario/{id}/editar','userController@edit'); //editar un usuario
+
+Route::delete('/usuario/{id}/eliminar','userController@destroy');//eliminar un usuario
+
+Route::put('/usuario/{id}/update','userController@update'); //efectuar la actualizacion de los datos de un usuario

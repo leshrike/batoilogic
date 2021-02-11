@@ -99,13 +99,16 @@
                             <p class="text-xl">¡Descubre otros servicios adicionales!</p>
                             <p clasS="text-sm"> Contenido  incluido proximamente.</p>
                             <br>
-                            <p class="text-sm">Por <a href="#" class="text-blue-400">Saber más</a></p>
+                            <p class="text-sm"><a href="#" class="text-blue-400">Saber más</a></p>
                             <p class="text-sm">Información extra anunciada proximamente</p>
                             <br>
                             <p class="text-sm"> Características de los servicios:</p>
                                 <li class="text-sm"> texto de ejemplo </li>
                                 <li class="text-sm"> texto de ejemplo </li>
                                 <li class="text-sm"> texto de ejemplo </li>
+                                <li class="text-sm"> texto de ejemplo </li>
+                                <li class="text-sm"> texto de ejemplo </li>  
+                                <li class="text-sm"> texto de ejemplo </li>  
                                 <li class="text-sm"> texto de ejemplo </li>  
                         </div>
                     </div>

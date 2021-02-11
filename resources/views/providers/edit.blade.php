@@ -6,7 +6,7 @@
 
     <div class="container my-8 mx-auto px-4 md:px-12">
     <h1 class="text-3xl font-bold">Editar un proveedor</h1>
-    <form action="/proveedores/{{ $provider->id }}/update" method="PUT">
+    <form action="/proveedores/{{ $provider->id }}/update" method="POST">
     @csrf
     @method('PUT')
         

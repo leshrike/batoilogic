@@ -15,7 +15,7 @@ class providerFactory extends Factory
      * @var string
      */
     protected $model = provider::class;
-
+    
     /**
      * Define the model's default state.
      *
@@ -26,7 +26,7 @@ class providerFactory extends Factory
         return [
             
             'name'=>$this->faker->name(),
-            'logo'=>$this->faker->imageUrl(400,350),
+            'logo'=>'/images/640.png',
             'email'=>$this->faker->unique()->safeEmail,
             'phone'=>$this->faker->phoneNumber(),
         ];

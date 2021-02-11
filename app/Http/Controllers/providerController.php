@@ -25,7 +25,8 @@ class providerController extends Controller
         $provider = new provider();
 
         $provider->name = $request->name;
-        $product($id)->logo = $request->logo->storePubliclyAs('images','s3');
+        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $provider->logo = $path;
         $provider->email = $request->email;
         $provider->phone = $request->phone;
 
@@ -47,13 +48,13 @@ class providerController extends Controller
     public function update(Request $request,$id){
         $provider = provider::findOrFail($id);
         
-        $provider($id)->name = $request->name;
-        $product($id)->logo = $request->logo->storePubliclyAs('images','s3');
-        $provider($id)->email = $request->email;
-        $provider($id)->phone = $request->phone;
-
-        $provider()->save();
-        return redirect('/proveedores/{id}');
+        $provider->name = $request->name;
+        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $provider->logo = $path;
+        $provider->email = $request->email;
+        $provider->phone = $request->phone;
+        $provider->save();
+        return redirect('/proveedores/'.$id);
 
     }
 
