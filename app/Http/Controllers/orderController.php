@@ -29,7 +29,7 @@ class orderController extends Controller
 
     public function show($id){
         $order = order::findOrFail($id);
-        $orderlines = orderline::find($order->id,'order_id');
+        $orderlines = $order->ordeline;
         return view('order.show',compact('order','orderlines'));
     }
 

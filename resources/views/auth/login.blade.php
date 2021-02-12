@@ -1,3 +1,4 @@
+<title>Login</title>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -48,7 +49,7 @@
                 </x-jet-button>
 
                 <x-jet-button class="ml-4">
-                    <a href="/usuario/crear">Regirstrarme</a>
+                    <a href="register">Regirstrarme</a>
                 </x-jet-button>
             </div>
         </form>

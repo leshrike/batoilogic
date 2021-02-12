@@ -8,58 +8,47 @@ use Illuminate\Http\Request;
 
 class providerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $providers = provider::get();
+        return $providers;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $provider = new provider();
+
+        $provider->name = $request->name;
+        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $provider->logo = $path;
+        $provider->email = $request->email;
+        $provider->phone = $request->phone;
+
+        $provider()->save();
+        return response()->json($provider,201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function show(provider $provider)
     {
-        //
+        return response()->json($provider,200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, provider $provider)
     {
-        //
+        $provider->name = $request->name;
+        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $provider->logo = $path;
+        $provider->email = $request->email;
+        $provider->phone = $request->phone;
+        $provider->save();
+        return response()->json($provider,200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(provider $provider)
     {
-        //
+        $provider->delete();
+
+        return response()->json(null,204);
     }
 }

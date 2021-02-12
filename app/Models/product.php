@@ -13,7 +13,7 @@ class product extends Model
 
     public function orderline(){
 
-        return $this->belongsToMany('\App\Models\orderline');
+        return $this->hasMany('\App\Models\orderline');
     }
 
     public function provider(){

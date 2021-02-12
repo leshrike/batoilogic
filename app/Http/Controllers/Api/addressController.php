@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\order;
+use App\Models\address;
 use Illuminate\Http\Request;
 
-class orderController extends Controller
+class addressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class orderController extends Controller
      */
     public function index()
     {
-        $orders = order::get();
-        return $orders;
+        //
     }
 
     /**
@@ -33,10 +32,10 @@ class orderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\address  $address
      * @return \Illuminate\Http\Response
      */
-    public function show(order $order)
+    public function show(address $address)
     {
         //
     }
@@ -45,10 +44,10 @@ class orderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\address  $address
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, order $order)
+    public function update(Request $request, address $address)
     {
         //
     }
@@ -56,10 +55,10 @@ class orderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\address  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order)
+    public function destroy(address $address)
     {
         //
     }

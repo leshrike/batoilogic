@@ -21,6 +21,7 @@ Route::get('/', function() {
     return view('home');
     });
 
+
 /** Rutas de pedidos Batoilogic */
 
 Route::get('/pedidos','orderController@index'); //mostrar todos los pedidos

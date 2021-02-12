@@ -8,58 +8,42 @@ use Illuminate\Http\Request;
 
 class orderlineController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $orderlines = orderline::get();
+        return $orderlines;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $orderline = new orderline();
+
+        $orderline->order_id = $request->order_id;
+        $orderline->product_id = $request->product_id;
+        $orderline->quantity = $request->quantity;
+
+        $orderline->save();
+        return response()->json($orderline,201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\orderline  $orderline
-     * @return \Illuminate\Http\Response
-     */
     public function show(orderline $orderline)
     {
-        //
+        return response()->json($orderline,200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\orderline  $orderline
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, orderline $orderline)
     {
-        //
+        $orderline->order_id = $request->order_id;
+        $orderline->order_id = $request->order_id;
+        $orderline->order_id = $request->order_id;
+
+        $orderline->save();
+        return response()->json($orderline,200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\orderline  $orderline
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(orderline $orderline)
     {
-        //
+        $orderline->destroy();
+        return response()->json(null,204);
     }
 }

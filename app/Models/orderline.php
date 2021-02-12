@@ -13,7 +13,7 @@ class orderline extends Model
 
     public function product(){
 
-        return $this->hasOne('\App\Models\product');
+        return $this->belongsTo('\App\Models\product');
     }
 
     public function order(){

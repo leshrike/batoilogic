@@ -17,21 +17,15 @@
             <thead class="bg-gray-50">
                 <tr>
                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Cliente
+                    Item
                 </th>
                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Repartidor
-                </th>
-                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Estado
+                    Cantidad
                 </th>
                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Acciones
                 </th>
                 </tr>
-                <?php
-                   dd($orderlines)
-                ?>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($orderlines as $orderline)
@@ -45,12 +39,10 @@
                         <div class="text-sm font-medium text-gray-900">
                     <!-- OBTIENE EL NOMBRE DEL PRODUCTO QUE SEA IGUAL QUE LA ID DE PRODUCTO DADA -->
                         <?php
-                            $id = $orderline->product_id;   
-                            $producto = App\Models\product::find($id)->get();
+                            $producto = $orderline->product;
                         ?>
-                            {{ $producto }}
+                            {{ $producto->name }}
                         </div>
-                    
                     </div>
                     </div>
                 </td>

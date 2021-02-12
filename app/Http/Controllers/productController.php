@@ -47,7 +47,6 @@ class productController extends Controller
     }
 
     public function update(Request $request,$id){
-        $product = product::findOrFail($id);
         
         $product->name = $request->name;
         $product->description = $request->description;

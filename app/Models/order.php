@@ -22,7 +22,7 @@ class order extends Model
         return $this->belongsTo('\App\Models\User');
     }
 
-    public function lineas(){
+    public function ordeline(){
 
         return $this->hasMany('\App\Models\orderline');
     }
