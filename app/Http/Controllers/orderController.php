@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\state;
 use App\Models\orderline;
 use Illuminate\Http\Request;
+use PDF;
 
 class orderController extends Controller
 {
@@ -44,5 +45,18 @@ class orderController extends Controller
     public function destroy($id){
        order::where('id',$id)->delete();
        return redirect('/pedidos');
+    }
+
+    public function albaran(){
+
+        $pedidos = order::all();
+
+        $repartidor = (auth()->user()->id);
+
+        $orders = order::where('dealer_id',$repartidor);
+
+        $pdf = PDF::loadView('orders.albaran',compact('orders'));
+        
+        return $pdf->download('entregas.pdf');
     }
 }

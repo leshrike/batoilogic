@@ -27,12 +27,14 @@
             </div>
             <p class="text-xs">{{ $product->description }}</p>
         </div>
+        @if (auth()->user()->role === 'admin')
         <div class="container my-12 mx-auto px-4 md:px-12">
             <a class="object-right bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="/productos/{{$product->id}}/editar">
                 Editar el producto 
             </a>          
             <a class="object-left bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/productos/{{$product->id}}/eliminar">Eliminar el Producto</a>
         </div>
+        @endif
     </div>
     
 @endsection

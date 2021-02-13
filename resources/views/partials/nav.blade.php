@@ -2,21 +2,16 @@
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        
         <div class="flex-shrink-0 flex items-center">
-        <!-- Icono del nav si el display correspongde con  "lg" -->
-        
-          
-        <!-- Icono del nav si el desplay es chiquito -->  
           <img class="block lg:hidden h-8 w-auto" src="\images\favicon.png">
           <img class="hidden lg:block h-7 w-auto bg-white" src="\images\logo.png">
         </div>
           <div class="flex space-x-4">
             <br>
             <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
-            <a href="proveedores" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Proveedores</a>
-            <a href="productos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Productos</a>
-            <a href="pedidos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pedidos</a>
+            <a href="/proveedores" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Proveedores</a>
+            <a href="/productos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Productos</a>
+            <a href="/pedidos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pedidos</a>
           </div>
       </div>
     <!-- Con este boton accederemos al perfil de usuario (del que esta conectado), si no estamos conectados, aparecerá un botón de login -->
@@ -51,6 +46,13 @@
               </a>
           </div>
       </div>
+      <form action="logout" method="POST">
+      @csrf
+      @method('Post')
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <input type="submit" class="object-right bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" value="Logout">
+        </div>
+      </form>
     @endif
       <!-- Seccion del boton de login, solo sería visible en caso de que no estemos conectados -->
       @if(!auth()->check())
@@ -60,10 +62,20 @@
               </a>
         </div>
       @endif
+      @if (auth()->check())
+        @if (auth()->user()->role === 'dealer')
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <a class="object-right bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/pedidos/albaran">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+              </svg>
+          </a>
+        </div>
+        @endif
+      @endif
     </div>
   </div>
 </nav>
-
 <style>
 
   .desplegable{
@@ -91,5 +103,4 @@
   .dropdown:hover .dropbtn {
     background-color: #3e8e41;
   }
-
 </style>

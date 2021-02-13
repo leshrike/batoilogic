@@ -63,7 +63,21 @@ class providerController extends Controller
        return redirect('/proveedores');
     }
 
+    public function stocking($id){
+        $provider = provider::findOrFail($id);
+        return view('providers.stocking',compact('provider'));
+    }
 
+    public function stockUpdate(Request $request, $id){
 
+        $fichero = file_get_contents($request->stock_file);
+
+        $productos = json_decode($fichero,true);
+
+        foreach($productos as $producto){
+
+            $producto_id = $producto->id;
+        }
+    }
 
 }

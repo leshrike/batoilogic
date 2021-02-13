@@ -1,9 +1,3 @@
-@extends('plantilla')
-@section('titulo')
-    Mostrar todos los pedidos
-@endsection
-@section('contenido')
-
 <div class="flex-flex-col">
 <div class="container mx-auto">
 
@@ -113,4 +107,3 @@
     </div>
 </div>
 </div>
-@endsection

@@ -28,10 +28,12 @@ class orders extends Migration
             $table->unsignedBigInteger('dealer_id')->unsigned();
             $table->unsignedBigInteger('client_id')->unsigned();
             $table->unsignedBigInteger('state_id')->unsigned();
-            
+            $table->Date('delivery_date');
+
+
             $table->foreign('dealer_id')->references('id')->on('users')->onDelete('cascade'); 
             $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade'); 
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
            
             $table->smallinteger('order'); // se refiere al orden de entrega del producto
             

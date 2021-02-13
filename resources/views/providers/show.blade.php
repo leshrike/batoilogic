@@ -25,12 +25,21 @@
             </div>
             <p class="text-xs">{{ $provider->description }}</p>
         </div>
+        @if(auth()->user()->role === 'admin')
         <div class="container my-12 mx-auto px-4 md:px-12">
+            
+            <a class="object-right bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="/proveedores/{{$provider->id}}/stocking">
+                Actualizar el stock del proveedor
+            </a>
+
             <a class="object-right bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="/proveedores/{{$provider->id}}/editar">
                 Editar el proveedor 
             </a>          
-            <a class="object-left bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/proveedores/{{$provider->id}}/eliminar">Eliminar el Proveedor</a>
+            <a class="object-left bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/proveedores/{{$provider->id}}/eliminar">
+                Eliminar el Proveedor
+            </a>
         </div>
+        @endif
     </div>
 
 @endsection

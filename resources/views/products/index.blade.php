@@ -20,7 +20,7 @@ use App\Models\provider;
                         </a>
                         <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                             <h1 class="text-lg"> 
-                                <a class="no-undeline text-black" href="/product/{{ $product->id }}">{{ $product->name }}</a>
+                                <a class="no-undeline text-black" href="/productos/{{ $product->id }}">{{ $product->name }}</a>
                             </h1>
                             <p class="text-grey-darker text-sm">{{ $product->price }} €</p>
                         </header>

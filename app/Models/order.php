@@ -12,7 +12,7 @@ class order extends Model
 
     public $timestamps = false;
 
-    public function delaer(){
+    public function dealer(){
 
         return $this->belongsTo('\App\Models\User');
     }

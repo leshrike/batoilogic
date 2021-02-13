@@ -28,6 +28,7 @@ class orderFactory extends Factory
             'client_id'=> User::inRandomOrder()->where('role',"user")->value('id'),
             'order'=>$this->faker->numberBetween(1,15),
             'state_id'=> state::inRandomOrder()->value('id'),
+            'delivery_date' =>$this->faker->date($format="Y-m-d", $max="now"),
         ];
     }
 }
