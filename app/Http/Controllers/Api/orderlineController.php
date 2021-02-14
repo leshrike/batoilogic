@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class orderlineController extends Controller
 {
+    public function __construct(){
+        
+        $this->middleware('auth:sanctum',['except' => ['index', 'show']]);
+    }
+    
     public function index(){
         $orderlines = orderline::get();
         return $orderlines;

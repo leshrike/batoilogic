@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class providerController extends Controller
 {
+    public function __construct(){
+        
+        $this->middleware('auth:sanctum',['except' => ['index', 'show']]);
+    }
+    
     public function index(){
 
         $providers = provider::get();

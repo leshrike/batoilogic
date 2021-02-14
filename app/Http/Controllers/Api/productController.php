@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class productController extends Controller
 {
+    public function __construct(){
+        
+        $this->middleware('auth:sanctum',['except' => ['index', 'show']]);
+    }
+    
     //mostramos todos los productos
     public function index()
     {

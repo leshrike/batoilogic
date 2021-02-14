@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 
 class stateController extends Controller
 {
-
+    public function __construct(){
+        
+        $this->middleware('auth:sanctum',['except' => ['index', 'show']]);
+    }
+    
     public function index()
     {
         $states = state::get();
