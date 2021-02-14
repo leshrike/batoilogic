@@ -18,19 +18,25 @@ class productController extends Controller
     //guardamos el producto que pasamos como parametro
     public function store(Request $request)
     {
-        $product = new Product();
+        $product = new product();
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->provider_id = $request->provider_id;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->active = $request->active;
-        $path = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
+        $path = $request->photo;
         $product->photo = $path;
-        $product->id_provider = $request->photo->id_provider;
-        $product()->save();  
+            try {
+                $product->save();
+                return response()->json($product, 201);
+            }catch (QueryException $e){
+                
+                return response()->json([$e->getMessage()],400);
 
-        return response()->json($product,201);
-    }
+            }
+        
+        }
 
     //mostramos el producto que pasamos como parametro
     public function show(product $product)
@@ -43,15 +49,22 @@ class productController extends Controller
     {
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->provider_id = $request->provider_id;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->active = $request->active;
-        $path = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
+        $path = $request->photo;
         $product->photo = $path;
-        $product->save();
-        $proveedor = provider::find($product->provider_id);
-       
-        return response()->json($product);
+            
+        try {
+                $product->save();
+        
+                return response()->json($product);
+            }catch (QueryException $e){
+            
+                return response()->json(['error'=>$e->getMessage()],400);
+    
+            }
     }
 
     //eliminamos el producto que pasamos como parametro
@@ -59,11 +72,5 @@ class productController extends Controller
     {
        $product->delete();
        return response()->json(null,204);
-    }
-
-    // obtenemos un producto con  la ID obtenida como parametro
-    public function getOne($id){
-        $product = product::get($id);
-        return $product;
     }
 }

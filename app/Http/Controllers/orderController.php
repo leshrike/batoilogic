@@ -11,6 +11,7 @@ use PDF;
 
 class orderController extends Controller
 {
+
     public function index(){
         
         $orders = order::all();

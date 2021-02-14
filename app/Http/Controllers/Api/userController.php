@@ -24,13 +24,17 @@ class userController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
 
-        $user->save();
-        return response()->json($user,201);
+        try {
+            $user->save();
+            return response()->json($user, 201);
+        } catch (QueryException $e){
+            return response()->json(['error'=>$e->getMessage()], 400);
+        }
     }
 
     public function show(User $user)
-    {
-        return response()->json($user,200);
+    {  
+       return response()->json($user,200);
     }
 
     public function update(Request $request, User $user)
@@ -39,9 +43,13 @@ class userController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
-
-        $user->save();
-        return response()->json($user,200);
+        try {
+            $user->save();
+            return response()->json($user, 200);
+        }catch (QueryException $e){
+            
+            return response()->json(['error'=>$e->getMessage()],400);
+        }
     }
 
     public function destroy(User $user)

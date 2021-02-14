@@ -8,42 +8,50 @@ use Illuminate\Http\Request;
 
 class orderlineController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $orderlines = orderline::get();
         return $orderlines;
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $orderline = new orderline();
 
         $orderline->order_id = $request->order_id;
         $orderline->product_id = $request->product_id;
         $orderline->quantity = $request->quantity;
-
-        $orderline->save();
-        return response()->json($orderline,201);
+        try {
+            $orderline->save();
+            return response()->json($orderline, 201);
+        
+        }catch (QueryException $e){
+            
+            return response()->json(['error'=>$e->getMessage()],400);
+        }
+    
     }
 
-    public function show(orderline $orderline)
-    {
+    public function show(orderline $orderline){
         return response()->json($orderline,200);
     }
 
-    public function update(Request $request, orderline $orderline)
-    {
+    public function update(Request $request, orderline $orderline){
         $orderline->order_id = $request->order_id;
-        $orderline->order_id = $request->order_id;
-        $orderline->order_id = $request->order_id;
+        $orderline->product_id = $request->product_id;
+        $orderline->quantity = $request->quantity;
+        try {
+            $orderline->save();
+            return response()->json($orderline, 200);
+        }catch (QueryException $e){
+            
+            return response()->json(['error'=>$e->getMessage()],400);
 
-        $orderline->save();
-        return response()->json($orderline,200);
+        }
     }
+
 
     public function destroy(orderline $orderline)
     {
-        $orderline->destroy();
+        $orderline->delete();
         return response()->json(null,204);
     }
 }

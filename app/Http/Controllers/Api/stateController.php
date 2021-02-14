@@ -11,7 +11,12 @@ class stateController extends Controller
 
     public function index()
     {
-        $states = states::get();
+        $states = state::get();
         return $states;
+    }
+
+    public function show(state $state)
+    {
+        return response()->json($state,200);
     }
 }

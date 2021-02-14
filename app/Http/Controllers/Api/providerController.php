@@ -1,16 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use App\Models\provider;
 use Illuminate\Http\Request;
 
 class providerController extends Controller
 {
-    
-    public function index()
-    {
+    public function index(){
+
         $providers = provider::get();
         return $providers;
     }
@@ -18,15 +16,19 @@ class providerController extends Controller
     public function store(Request $request)
     {
         $provider = new provider();
-
         $provider->name = $request->name;
-        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $path = $request->logo;
         $provider->logo = $path;
         $provider->email = $request->email;
         $provider->phone = $request->phone;
-
-        $provider()->save();
-        return response()->json($provider,201);
+        
+        try{
+            $provider->save();
+            return response()->json($provider,201);
+        }catch (QueryException $e){
+            
+            return response()->json(['error'=>$e->getMessage()],400);
+        }
     }
 
     public function show(provider $provider)
@@ -37,13 +39,22 @@ class providerController extends Controller
     public function update(Request $request, provider $provider)
     {
         $provider->name = $request->name;
-        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
+        $path = $request->logo;
         $provider->logo = $path;
         $provider->email = $request->email;
         $provider->phone = $request->phone;
-        $provider->save();
-        return response()->json($provider,200);
-    }
+        
+            try {
+              
+                $provider->save();
+                return response()->json($provider, 200);
+
+            }catch (QueryException $e){
+                
+                return response()->json(['error'=>$e->getMessage()],400);
+            }
+
+        }
 
     public function destroy(provider $provider)
     {
