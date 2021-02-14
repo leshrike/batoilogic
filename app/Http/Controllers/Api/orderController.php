@@ -92,18 +92,13 @@ class orderController extends Controller
          *      response=201,
          *      description="Success",
          *      @OA\JsonContent(
-         *      @OA\Property(property="message",type="string",example="Success")
+         *      @OA\Property(property="message",type="string",example="Success"),
          *      ),
          * ),
          * 
          * @OA\Response(
          *      response=403,
          *      description="Forbidden",
-         * ),
-         * 
-         *  @OA\Response(
-         *      response=401,
-         *      description="Unauthenticated",
          * ),
          * 
          * @OA\Response(
@@ -120,7 +115,6 @@ class orderController extends Controller
          *              type="string",
          *              example="The user has not been authenticated"))
          * ),
-         * 
          * )
          */
 
@@ -148,7 +142,7 @@ class orderController extends Controller
          * @OA\Response(
          *      response=201,
          *      description="Success",
-         *      @OA\JsonContent(@OA\JsonContent(ref="#/components/schemas/orderResource")),
+         *      @OA\JsonContent(ref="#/components/schemas/orderResource")),
          *      
          * ),
          * 
@@ -156,7 +150,6 @@ class orderController extends Controller
          *      response=403,
          *      description="Forbidden",
          * ),
-         * 
          * )
         */
     public function update(Request $request, order $order){

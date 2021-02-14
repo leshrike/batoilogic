@@ -5,14 +5,30 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Model\User;
 
+
+    /** 
+     * @OA\Schema(
+     *      title="orderResource",
+     *      description="recurso del proyecto",
+     *      @OA\Xml(name="orderResource"),
+     * )
+    */
+
 class orderResource extends JsonResource
 {
+
+
     /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @OA\Property(
+     *  property="data",
+     *  title="data",
+     *  description="Data Wraper",
+     * )
+     * 
+     * @var \App\Models\Movie[]
      */
+
+
     public function toArray($request)
     {
         return [
@@ -27,3 +43,5 @@ class orderResource extends JsonResource
         ];
     }
 }
+
+       
