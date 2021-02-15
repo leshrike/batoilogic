@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Api\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('login', 'Api\LoginController@login');
+Route::apiResource('address',Api\addressController::class); // quizas lo eliminamos
+Route::apiResource('order',Api\orderController::class);
+Route::apiResource('orderline',Api\orderlineController::class);
+Route::apiResource('product',Api\productController::class);
+Route::apiResource('provider',Api\providerController::class);
+Route::apiResource('state',Api\stateController::class);
+Route::apiResource('User',Api\userController::class);
