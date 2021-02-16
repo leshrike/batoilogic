@@ -8,7 +8,7 @@
         </div>
           <div class="flex space-x-4">
             <br>
-            <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+            <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
             <a href="/proveedores" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Proveedores</a>
             <a href="/productos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Productos</a>
             <a href="/pedidos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pedidos</a>
@@ -27,33 +27,27 @@
            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
           </svg>
         </button>
-          <div class="dropdown-content origin-top-right right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-              
-              <a href="#" class=" w-2 h-2 text-sm text-gray-700 hover:bg-gray-100">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                </svg> -->
-                Mi perfil
-              </a>
-              
-              <br>
-              
-              <a href="#" class=" w-2 h-2 text-sm text-gray-700 hover:bg-gray-100">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 6" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg> -->
-                Salir
-              </a>
+       
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/usuario/{{auth()->user()->id}}" class=" text-center block px-4 py-2 text-sm hover:bg-green-600 bg-green-400 text-white w-full h-10" role="menuitem">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-full w-full h-full">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+            </a>
+            <form action="logout" method="POST" class="block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full h-10">
+              @csrf
+              @method('Post')
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-full h-full">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+
+                    <input type="submit" class="" value="" role="menuitem">
+                      
+                    </input>
+              </form>
           </div>
       </div>
-      <form action="logout" method="POST">
-      @csrf
-      @method('Post')
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <input type="submit" class="object-right bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" value="Logout">
-        </div>
-      </form>
-    @endif
+      @endif
       <!-- Seccion del boton de login, solo sería visible en caso de que no estemos conectados -->
       @if(!auth()->check())
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

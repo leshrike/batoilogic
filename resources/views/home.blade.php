@@ -7,28 +7,28 @@
 @section('contenido')
 
 
-    <div class="container mx-auto bg-gradient-to-r from-green-400 to-blue-300">
+    <div class="container mx-auto">
     <br>
 
         <div class="flex space-x-4">
 
             <div class="flex-1 ">
                 <div class="bg-white">
-                <img class="w-full h-auto"src="https://via.placeholder.com/300"/>
+                <img class="w-auto h-auto"src="https://via.placeholder.com/100"/>
                 <p class="text-bold text-center"><a class="text-blue-400" href="pedidos">Ver pedidos</a></p>
                 </div>
             </div>
             
             <div class="flex-1">
                 <div class="bg-white">
-                <img class="w-full h-auto" src="https://via.placeholder.com/300"/>
+                <img class="w-auto h-auto" src="https://via.placeholder.com/100"/>
                 <p class="text-bold text-center"><a class="text-blue-400" href="productos">Ver productos</a></p>
                 </div>
             </div>
             
             <div class="flex-1">
                 <div class="bg-white">
-                <img class="w-full h-auto" src="https://via.placeholder.com/300"/>
+                <img class="w-auto h-auto" src="https://via.placeholder.com/100"/>
                 <p class="text-bold text-center"><a class="text-blue-400" href="proveedores">Ver proveedores</a></p>
                 </div>
         </div>
@@ -86,11 +86,11 @@
                     Nullam congue, neque a tempor placerat, est urna dapibus massa, non egestas mi neque nec risus. Suspendisse potenti.
                 </p>
             </div>
-                        <div class="container my-12 mx-auto px-4 md:px-12 bg-gradient-to-r from-green-400 to-blue-300">
+                        <div class="container my-12 mx-auto px-4 md:px-12">
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                         <!-- Imagen del producto -->
                         <div class="my-1 px-2 w-full md:w-1/2 lg:px-1 lg:w-1/2">
-                            <img alt="servicios" src="https://via.placeholder.com/640" name="servicio" >
+                            <img alt="servicios" src="https://via.placeholder.com/400" name="servicio" >
                         </div>
                         <!-- Campos varios del producto -->
                         <div class="my-1 px-2 w-full md:w-1/2 lg:px-1 lg:w-1/2 float-right bg-white text-center">

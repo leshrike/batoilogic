@@ -32,7 +32,7 @@ class orderController extends Controller
          * @OA\Response(
          *      response=200,
          *      description="Success",
-         *      @OA\JsonContent(ref="#/components/schemas/orderResource"),
+         *      @OA\JsonContent(ref="#/components/schemas/order"),
          * ),
          * 
          * @OA\Response(
