@@ -214,6 +214,215 @@
                 }
             }
         },
+        "/api/orderline": {
+            "get": {
+                "tags": [
+                    "orderlines"
+                ],
+                "summary": "Gets all orderlines",
+                "description": "Obtains all orderlines that are stored in the database",
+                "operationId": "getOrderlines",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/orderline"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "orderlines"
+                ],
+                "summary": "Add an orderline",
+                "description": "Store a new orderline in the database",
+                "operationId": "postOrderline",
+                "requestBody": {
+                    "description": "Posting an orderline",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/orderlineResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/orderline/{id}": {
+            "get": {
+                "tags": [
+                    "orderlines"
+                ],
+                "summary": "Show an orderline",
+                "description": "Show an orderline stored in the database",
+                "operationId": "showOrderline",
+                "requestBody": {
+                    "description": "Posting an orderline",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "": {}
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/orderlineResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "orderlines"
+                ],
+                "summary": "Edits an orderline",
+                "description": "Overwrites an orderline stored in the database",
+                "operationId": "updateOrderline",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/orderlineResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "orderlines"
+                ],
+                "summary": "Deletes an orderline",
+                "description": "Deletes an orderline stored in the database",
+                "operationId": "deletesOrderline",
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/provider": {
             "get": {
                 "tags": [
@@ -444,6 +653,24 @@
                     "name": "orderResource"
                 }
             },
+            "orderlineResource": {
+                "title": "orderlineResource",
+                "description": "recurso del proyecto -- orderline",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "description": "Data Wraper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/orderline"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "orderlineResource"
+                }
+            },
             "providerResource": {
                 "title": "providerResource",
                 "description": "recurso del proyecto, proveedor",
@@ -503,6 +730,37 @@
                 "type": "object",
                 "xml": {
                     "name": "order"
+                }
+            },
+            "orderline": {
+                "required": [
+                    "id,product_id,quantity,order_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "Iphone 11"
+                    },
+                    "order_id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "5"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "orderline"
                 }
             },
             "provider": {
