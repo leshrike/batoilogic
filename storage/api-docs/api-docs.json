@@ -631,6 +631,86 @@
                     }
                 }
             }
+        },
+        "/api/state": {
+            "get": {
+                "tags": [
+                    "states"
+                ],
+                "summary": "Gets all states",
+                "description": "Obtains all states that are stored in the database",
+                "operationId": "getstates",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/state"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/state/{id}": {
+            "get": {
+                "tags": [
+                    "states"
+                ],
+                "summary": "Show an state",
+                "description": "Show an state stored in the database",
+                "operationId": "showstate",
+                "requestBody": {
+                    "description": "Posting an state",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "": {}
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/state"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -687,6 +767,24 @@
                 "type": "object",
                 "xml": {
                     "name": "providerResource"
+                }
+            },
+            "statesResource": {
+                "title": "orderResource",
+                "description": "recurso del proyecto",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "description": "Data Wraper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/state"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "stateResource"
                 }
             },
             "order": {
@@ -798,6 +896,27 @@
                 "type": "object",
                 "xml": {
                     "name": "provider"
+                }
+            },
+            "state": {
+                "required": [
+                    "id,text"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "text": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "En ruta"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "states"
                 }
             }
         },
