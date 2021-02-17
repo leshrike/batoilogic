@@ -26,8 +26,7 @@ class productController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->active = $request->active;
-        $path = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
-        $product->photo = $path;
+        $product->photo = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
         $product->id_provider = $request->photo->id_provider;
         
         $product()->save();
@@ -47,14 +46,13 @@ class productController extends Controller
     }
 
     public function update(Request $request,$id){
-        
+        $product = product::findOrFail($id);
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->active = $request->active;
-        $path = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
-        $product->photo = $path;
+        $product->photo = $request->photo->storeAs('images',$request->photo->getClientOriginalName(),'public');
         $product->save();
         $proveedor = provider::find($product->provider_id);
         return redirect('/productos/'.$id);

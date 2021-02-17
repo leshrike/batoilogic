@@ -49,8 +49,7 @@ class providerController extends Controller
         $provider = provider::findOrFail($id);
         
         $provider->name = $request->name;
-        $path = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
-        $provider->logo = $path;
+        $provider->logo = $request->logo->storeAs('images',$request->logo->getClientOriginalName(),'public');
         $provider->email = $request->email;
         $provider->phone = $request->phone;
         $provider->save();
