@@ -25,14 +25,14 @@ class orderlineController extends Controller
         $orderline->product_id = $request->product_id;
         $orderline->quantity = $request->quantity;
         try {
+            
             $orderline->save();
             return response()->json($orderline, 201);
-        
-        }catch (QueryException $e){
             
+        }catch (QueryException $e){
+
             return response()->json(['error'=>$e->getMessage()],400);
         }
-    
     }
 
     public function show(orderline $orderline){
@@ -44,8 +44,10 @@ class orderlineController extends Controller
         $orderline->product_id = $request->product_id;
         $orderline->quantity = $request->quantity;
         try {
+        
             $orderline->save();
             return response()->json($orderline, 200);
+        
         }catch (QueryException $e){
             
             return response()->json(['error'=>$e->getMessage()],400);

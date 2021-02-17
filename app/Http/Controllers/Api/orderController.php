@@ -165,13 +165,60 @@ class orderController extends Controller
         }catch (QueryException $e){
                 
             return response()->json(['error'=>$e->getMessage()],400);
-
         }
     }
-
-   
+    /**
+         * @OA\Put(
+         * path="/api/order/{id}",
+         * summary="Edits an order",
+         * description="Overwrites an order stored in the database",
+         * operationId="updateOrder",
+         * tags={"orders"},
+         * 
+         * 
+         * @OA\Response(
+         *      response=200,
+         *      description="Success",
+         *      @OA\JsonContent(ref="#/components/schemas/orderResource"),
+         * ),
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * 
+         * )
+         */
     public function destroy(order $order){
         $order->delete();
         response()->json(null,204);
     }
+        /**
+         * @OA\Delete(
+         * path="/api/order/{id}",
+         * summary="Deletes an order",
+         * description="Deletes an order stored in the database",
+         * operationId="deletesOrder",
+         * tags={"orders"},
+         * 
+         * 
+         * @OA\Response(
+         *      response=204,
+         *      description="Success",
+         * ),
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * )
+         */
 }

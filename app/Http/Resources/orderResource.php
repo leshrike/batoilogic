@@ -25,7 +25,7 @@ class orderResource extends JsonResource
      *  description="Data Wraper",
      * )
      * 
-     * @var \App\Models\Movie[]
+     * @var \App\Models\order[]
      */
 
 
