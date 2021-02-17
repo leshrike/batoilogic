@@ -182,7 +182,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -211,7 +216,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/api/orderline": {
@@ -391,7 +401,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -420,7 +435,231 @@
                             }
                         }
                     }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/product": {
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Gets all products",
+                "description": "Obtains all products that are stored in the database",
+                "operationId": "getProducts",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/product"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
                 }
+            },
+            "post": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Add an product",
+                "description": "Store a new product in the database",
+                "operationId": "postproduct",
+                "requestBody": {
+                    "description": "Posting an product",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/productResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/product/{id}": {
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Show a product",
+                "description": "Show a product stored in the database",
+                "operationId": "showproduct",
+                "requestBody": {
+                    "description": "Posting an product",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "": {}
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/productResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Edits a product",
+                "description": "Overwrites a product stored in the database",
+                "operationId": "updateproduct",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/productResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Deletes a product",
+                "description": "Deletes a product stored in the database",
+                "operationId": "deletesproduct",
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/api/provider": {
@@ -600,7 +839,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -629,7 +873,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/api/state": {
@@ -751,6 +1000,24 @@
                     "name": "orderlineResource"
                 }
             },
+            "productResource": {
+                "title": "prodcutResource",
+                "description": "recurso del proyecto",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "description": "Data Wraper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/product"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "productResource"
+                }
+            },
             "providerResource": {
                 "title": "providerResource",
                 "description": "recurso del proyecto, proveedor",
@@ -859,6 +1126,61 @@
                 "type": "object",
                 "xml": {
                     "name": "orderline"
+                }
+            },
+            "product": {
+                "required": [
+                    "id,name,description,price,stock,active,provider_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "provider_id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "6"
+                    },
+                    "name": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "5"
+                    },
+                    "description": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "price": {
+                        "description": "Date expected for the package to arrive",
+                        "type": "date",
+                        "readOnly": "true",
+                        "example": "2000-04-12"
+                    },
+                    "stock": {
+                        "description": "Amount of items that are available in the storage",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "6"
+                    },
+                    "active": {
+                        "description": "Shows if an article is active or not. 1 stands for active, 0 stands for inactive",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "6"
+                    },
+                    "photo": {
+                        "description": "This field is nullable. Here we will find the photo linked to a certain prouct",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "6"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "product"
                 }
             },
             "provider": {

@@ -16,9 +16,41 @@ class productController extends Controller
     //mostramos todos los productos
     public function index()
     {
-        $products = product::get();
-        return $products;
+        return productResource::collection(product::get());
     }
+
+     /**
+         * @OA\Get(
+         * path="/api/product",
+         * summary="Gets all products",
+         * description="Obtains all products that are stored in the database",
+         * operationId="getProducts",
+         * tags={"products"},
+         * 
+         * 
+         * @OA\Response(
+         *      response=200,
+         *      description="Success",
+         *      @OA\JsonContent(ref="#/components/schemas/product"),
+         * ),
+         * 
+         * @OA\Response(
+         *      response=403,
+         *      description="Forbidden",
+         * ),
+         * 
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * 
+         * )
+         */
 
     //guardamos el producto que pasamos como parametro
     public function store(Request $request)
@@ -43,11 +75,82 @@ class productController extends Controller
         
         }
 
+        /**
+         * @OA\Post(
+         * path="/api/product",
+         * summary="Add an product",
+         * description="Store a new product in the database",
+         * operationId="postproduct",
+         * tags={"products"},
+         * security={ { "apiAuth": {}  }},
+         * @OA\RequestBody(
+         *    required=true,
+         *    description="Posting an product",
+         *    @OA\JsonContent(ref="#/components/schemas/productResource"),
+         * ),
+         * 
+         * @OA\Response(
+         *      response=201,
+         *      description="Success",
+         *      @OA\JsonContent(
+         *      @OA\Property(property="message",type="string",example="Success"),
+         *      ),
+         * ),
+         * 
+         * @OA\Response(
+         *      response=403,
+         *      description="Forbidden",
+         * ),
+         * 
+         * @OA\Response(
+         *      response=400,
+         *      description="Bad Request"
+         * ),
+         * 
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * )
+         */
+
+
     //mostramos el producto que pasamos como parametro
     public function show(product $product)
     {
         return response()->json($product, 200);
     }
+
+
+    /**
+         * @OA\Get(
+         * path="/api/product/{id}",
+         * summary="Show a product",
+         * description="Show a product stored in the database",
+         * operationId="showproduct",
+         * tags={"products"},
+         * @OA\RequestBody(
+         *    required=true,
+         *    description="Posting an product",
+         *    @OA\JsonContent(
+         *       required={"id"},
+         *       @OA\Property()
+         *    ),
+         * ),
+         * 
+         * @OA\Response(
+         *      response=201,
+         *      description="Success",
+         *      @OA\JsonContent(ref="#/components/schemas/productResource")),
+         *      
+         * ),
+         * )
+        */
 
     //editamos el producto que pasamos como parametro
     public function update(Request $request, product $product)
@@ -71,6 +174,34 @@ class productController extends Controller
     
             }
     }
+    /**
+         * @OA\Put(
+         * path="/api/product/{id}",
+         * summary="Edits a product",
+         * description="Overwrites a product stored in the database",
+         * operationId="updateproduct",
+         * security={ { "apiAuth": {}  }},
+         * tags={"products"},
+         * 
+         * 
+         * @OA\Response(
+         *      response=200,
+         *      description="Success",
+         *      @OA\JsonContent(ref="#/components/schemas/productResource"),
+         * ),
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * 
+         * )
+         */
+    
 
     //eliminamos el producto que pasamos como parametro
     public function destroy(product $product)
@@ -78,4 +209,30 @@ class productController extends Controller
        $product->delete();
        return response()->json(null,204);
     }
+
+    /**
+         * @OA\Delete(
+         * path="/api/product/{id}",
+         * summary="Deletes a product",
+         * description="Deletes a product stored in the database",
+         * operationId="deletesproduct",
+         * security={ { "apiAuth": {}  }},
+         * tags={"products"},
+         * 
+         * 
+         * @OA\Response(
+         *      response=204,
+         *      description="Success",
+         * ),
+         * @OA\Response(
+         *      response=401,
+         *      description="Unauthenticated",
+         *      @OA\JsonContent(
+         *          @OA\Property(
+         *              property="error",
+         *              type="string",
+         *              example="The user has not been authenticated"))
+         * ),
+         * )
+         */
 }

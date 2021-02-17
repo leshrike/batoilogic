@@ -165,6 +165,7 @@ class orderlineController extends Controller
          * description="Overwrites an orderline stored in the database",
          * operationId="updateOrderline",
          * tags={"orderlines"},
+         * security={ { "apiAuth": {}  }},
          * 
          * 
          * @OA\Response(
@@ -199,6 +200,7 @@ class orderlineController extends Controller
          * description="Deletes an orderline stored in the database",
          * operationId="deletesOrderline",
          * tags={"orderlines"},
+         * security={ { "apiAuth": {}  }},
          * 
          * 
          * @OA\Response(

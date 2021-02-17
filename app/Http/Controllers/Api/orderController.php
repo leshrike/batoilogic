@@ -174,6 +174,7 @@ class orderController extends Controller
          * description="Overwrites an order stored in the database",
          * operationId="updateOrder",
          * tags={"orders"},
+         * security={ { "apiAuth": {}  }},
          * 
          * 
          * @OA\Response(
@@ -204,6 +205,7 @@ class orderController extends Controller
          * description="Deletes an order stored in the database",
          * operationId="deletesOrder",
          * tags={"orders"},
+         * security={ { "apiAuth": {}  }},
          * 
          * 
          * @OA\Response(

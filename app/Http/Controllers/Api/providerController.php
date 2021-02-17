@@ -172,6 +172,7 @@ class providerController extends Controller
          * description="Overwrites a provider stored in the database",
          * operationId="updateProvider",
          * tags={"providers"},
+         * security={ { "apiAuth": {}  }},
          * 
          * 
          * @OA\Response(
@@ -206,6 +207,7 @@ class providerController extends Controller
          * description="Deletes a provider stored in the database",
          * operationId="deletesprovider",
          * tags={"providers"},
+         * security={ { "apiAuth": {}  }},
          * 
          * @OA\Response(
          *      response=204,
