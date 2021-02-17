@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'role'=>$this->faker->randomElement(['dealer','user']),
             'profile_photo_path'=>$this->faker->imageUrl(400,350),
+            'address'=>$this->faker->address(),
         ];
     }
 }

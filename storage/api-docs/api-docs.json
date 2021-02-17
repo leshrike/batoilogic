@@ -960,6 +960,222 @@
                     }
                 }
             }
+        },
+        "/api/User": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Gets all Users",
+                "description": "Obtains all Users that are stored in the database",
+                "operationId": "getUsers",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Add a User",
+                "description": "Store a new User in the database",
+                "operationId": "postUser",
+                "requestBody": {
+                    "description": "Posting a User",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/userResource"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/User/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show an User",
+                "description": "Show an User stored in the database",
+                "operationId": "showUser",
+                "requestBody": {
+                    "description": "Posting an User",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "": {}
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/userResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Edits an user",
+                "description": "Overwrites an user stored in the database",
+                "operationId": "updateUser",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/userResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Deletes an User",
+                "description": "Deletes an User stored in the database",
+                "operationId": "deletesUser",
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The user has not been authenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -1052,6 +1268,71 @@
                 "type": "object",
                 "xml": {
                     "name": "stateResource"
+                }
+            },
+            "userResource": {
+                "title": "userResource",
+                "description": "recurso del proyecto",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "description": "Data Wraper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "userResource"
+                }
+            },
+            "User": {
+                "required": [
+                    "id,title"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "6"
+                    },
+                    "email": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "5"
+                    },
+                    "password": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "role": {
+                        "description": "Specifies the role of the user in the app",
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "admin"
+                    },
+                    "remember_token": {
+                        "description": "token for API autherntication",
+                        "type": "string",
+                        "readOnly": "true"
+                    },
+                    "profile_photo_path": {
+                        "description": "location where th user's profile photo can be found",
+                        "type": "string",
+                        "readOnly": "true"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "user"
                 }
             },
             "order": {
