@@ -85,9 +85,37 @@ Dentro de la  aplicación podremos ver diferentes menús y paneles en los cuales
 
 ### Panel de Log-In
 
+![login_batoilogic](capturas_app_laravel/login.PNG)
 
-### Panel de 
+### Panel de Inicio
 
+![pagina de incio de batoilogic](capturas_app_laravel/inicio.PNG)
+
+![pagina de inicio de batoilogic](capturas_app_laravel/inicio2.PNG)
+
+### Panel de productos
+
+![pagina de productos batoilogic](capturas_app_laravel/productos.PNG)
+
+### Vista de un producto
+
+![pagina de producto](capturas_app_laravel/ver_Producto.PNG)
+
+### Panel de proveedores
+
+![pagina de proveedores batoilogic](capturas_app_laravel/proveedores.PNG)
+
+### Vista de un proveedor
+
+![pagina de proveedor](capturas_app_laravel/ver_proveedor.PNG)
+
+### Panel de Pedidos
+
+![pagina de pedidos](capturas_app_laravel/pedidos.PNG)
+
+### Ver pedido
+
+![pagina de pedido](capturas_app_laravel/ver_un_pedido.PNG)
 
 ## Instalación local
 
