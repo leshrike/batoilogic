@@ -25,6 +25,15 @@ class userSeeder extends Seeder
             'role'=>"admin",
         ];
 
+        $dealer =[ 
+            'name' => "dealer",
+            'email' => "dealer@batoilogic.com",
+            'email_verified_at' => now(),
+            'password' => bcrypt('1234'), // password
+            'remember_token' => Str::random(10),
+            'role'=>"dealer",
+        ];
+
         User::factory()->count(10)->create();
         User::create($admin);
     }

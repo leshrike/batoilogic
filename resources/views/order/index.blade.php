@@ -50,8 +50,7 @@
                     
                         <div class="text-sm text-center text-gray-500">
                             <?php
-                            $id = $order->client_id;
-                            $direccion = App\Models\address::firstWhere('user_id',$id);
+                            
                         ?>
                             
                         </div>
