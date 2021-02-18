@@ -15,6 +15,46 @@ Podremos acceder a esta aplicación como repartidores, usuarios normales o admin
 
 Para poner en funcionamiento esta aplicación hemos necesitado las siguientes aplicaciones o librerías :
 
+### Aplicaciones o servicios de Servidor:
+
+-**Ubuntu** ubuntu 20.04 // Las instancias seleccionadas en las que funcionan las app y servicios.
+
+-**Servidor Web** nginx 1.18.0 // El servidor web que aloja las app y sus configuraciones
+
+-**mysql:** mysql 8.0.23 // Servicio o aplicación de base de datos en la que almacenamos toda la información
+
+-**Servidor DNS** bind 9.16 // Servicio de resolución de nombres de dominio.
+
+-**php:** php 7.4.3 // Lenguaje de programación
+
+-**php-fpm:** php7.4-fpm // Intérprete del lenguaje PHP
+
+
+### Librerías o dependencias utilizadas en el Backoffice de Batoilogic
+
+-**laravel**: laravel 8.12 // framework en el cual ha sido creada la app
+
+-**dompdf**: lavravel-dompdf // librería que permite convertir una parte concreta del DOM (Document Object Model) en un pdf.
+
+-**filedroper/proxy** filedroper/proxy 4.4 
+
+-**guzzle/http** guzzle 7.0.1
+
+-**fruitcake/laravel-cors** fruitcake 2.0
+
+-**deployer** deployer 6.8 // herramienta de despliegue PHP
+
+-**faker** fakerphp/faker 1.9.1 // genera datos de prueba de forma automática
+
+-**jetstream** laravel/jetstream  2.1 // estructura de autenticación
+
+-**sanctum** laravel/sanctum 2.9 // estructura de autenticación, se usa como alternativa a passport.
+
+-**livewire** laravel/livewire 2.0
+
+-**tailwindcss** 2.0.1 // framework css que utiliza jetstream por defecto
+ 
+
 
 
 
