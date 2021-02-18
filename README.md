@@ -2,7 +2,7 @@
 
 ### Creado por Pablo Arévalo y Leo Román
  
-### ¿ Qué es el Backoffice ?
+## ¿ Qué es el Backoffice ?
 
 En esta aplicación podremos consultar y hacer diferentes acciones con los datos de la empresa.
 
@@ -55,7 +55,38 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**tailwindcss** 2.0.1 // framework css que utiliza jetstream por defecto
  
 
+## Usuarios para probar las funcionalidades
 
+
+Dentro de esta aplicación tendremos diferentes funcionalidades que son exclusivas para cada rol usuario. Para probarlas, podremos hacer uso de los siguientes usuarios:
+
+### Usuario Administrador
+
+``` prolog
+
+    usuario: admin
+    email:   admin@batoilogic.com
+    contraseña: 1234
+    
+```
+
+### Usuario Repartidor / Dealer
+
+```prolog
+
+    usuario: dealer
+    email:   dealer@batoilogic.com
+    contraseña: 1234
+```
+
+## Vista previa de la aplicación
+
+Dentro de la  aplicación podremos ver diferentes menús y paneles en los cuales podremos interactuar. Por motivos de seguridad y usabilidad, hay elementos que  pueden aparecer o desaparecer en función del tipo de usuario con el cual tengamos iniciada sesión.
+
+### Panel de Log-In
+
+
+### Panel de 
 
 
 ## Instalación local
@@ -74,14 +105,14 @@ En este fichero podremos hacer todos los cambios relativos al entorno de program
 En su interior deberemos cambiar:
 
 #### Ubicación del codigo de la aplicación
-```
+```prolog
 APP_CODE_PATH_HOST=../batoilogic/
 
 Nota: si no se le especifica, será la ruta en la que se encuentra el fichero .env
 
 ```
 #### Credenciales de la Base de Datos
-```
+```prolog
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -94,7 +125,7 @@ Nota: Al realizar una instalación local, los credenciales de la base de datos n
 
 #### Modificar el nombre y URL de la aplicación
 
-```
+```prolog
 APP_NAME=Batoilogic
 APP_URL=http://batoilogic
 
