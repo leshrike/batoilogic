@@ -268,3 +268,84 @@ php artisan:serve
 ```
 Nota: al ejecutar la directiva superior, nuestra página web  se encontrará en http://localhost:8080
 
+
+## ¿ Cómo desplegar este proyecto ?
+
+Para desplegar este proyecto Laravel haremos uso de la herramienta deployer, para esto deberemos dirigirnos a la raíz del proyecto e introducir una de las siguientes variantes del comando dep deploy.
+
+```prolog
+
+    dep deploy //versión normal y sin información
+    
+    dep deploy -v  //versión verbose, con la que obtendremos alguna información
+    
+    dep deploy -vv // versión verbose con una mayor cantidad de información, ideal para encontrar errores.
+
+```
+
+
+## Datos a resaltar sobre los servidores
+
+Para poder configurar los servidores hemos tenido que abrir los siguientes puertos:
+
+ Servidor de resolución de nombres de dominio -- DNS :
+ 
+```prolog
+
+Entrada: 80,22,21,443 (TCP) y 53 UDP
+
+Salida: 53(TCP) 53(UDP), Todos
+
+```
+### Servidor de Base de datos:
+ 
+ 
+ ```prolog
+ 
+ Entrada: 80, 22, 21, 3306, 443 
+ 
+ Salida: Todos, Mysql (3306, TCP) 
+ 
+ ```
+
+
+### Servidor web o servidor de aplicaciones:
+
+
+```prolog
+
+Entrada: 80,22,21,3306,443
+
+Salida: 3306 (TCP), Todos
+
+```
+
+### Usuario de despliegue
+
+En todos los servidores hemos usado el mismo usuario para realizar los despliegues y  tareas de administración.
+
+```prolog
+    usuario: batoilogic
+    contraseña: 2468 
+```
+Sin embargo, en la base de datos, el **usuario** será diferente
+
+```prolog
+    usuario: batoibackoffice
+    contraseña: 2468
+```
+
+Por lo tanto, para acceder a los servidores haremos uso de las siguientes directivas:
+
+**La clave pública de Alex está solo habilitada para el usuario batoilogic en los 3 servidores, en caso de necesitar acceso como el usuario "ubuntu", comunícanoslo**
+
+
+```prolog
+
+    Servidor de Base de Datos => ssh batoilogic@54.89.160.135
+    
+    Servidor web => ssh batoilogic@3.87.71.72
+    
+    Servidor DNS => ssh batoilogic@3.87.12.100
+
+```
