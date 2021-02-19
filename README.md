@@ -29,7 +29,15 @@ ssh batoilogic@ec2-3-87-71-72.compute-1.amazonaws.com // ssh batoilogic@3.87.71.
 ### Páginas + Enlaces
 [www.g01.batoilogic.es](http:www.g01.batoilogic.es)  
 [reparto.g01.batoilogic.es](http:reparto.g01.batoilogic.es)  
-[backoffice.g01.batoilogic.es](http:backoffice.g01.batoilogic.es)  
+[backoffice.g01.batoilogic.es](http:backoffice.g01.batoilogic.es)
+
+
+## Todos los repositorios del proyecto:
+ 
+[CRUD y Backoffice -- Laravel](https://github.com/leshrike/batoilogic)
+[App de repartidor -- Vue JS](https://github.com/leshrike/repartidor_batoilogic)
+[App de tienda -- Vue JS](https://github.com/leshrike/tienda-batoilogic)
+[Estilos y Guia de estilos]()
 
 
 ## Versiones
@@ -50,8 +58,6 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**php:** php 7.4.3 // Lenguaje de programación
 
 -**php-fpm:** php7.4-fpm // Intérprete del lenguaje PHP
-
-
 ```
 
 ### Librerías o dependencias utilizadas en el Backoffice de Batoilogic
