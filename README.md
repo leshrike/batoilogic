@@ -34,10 +34,10 @@ ssh batoilogic@ec2-3-87-71-72.compute-1.amazonaws.com // ssh batoilogic@3.87.71.
 
 ## Todos los repositorios del proyecto:
  
-[CRUD y Backoffice -- Laravel](https://github.com/leshrike/batoilogic)
-[App de repartidor -- Vue JS](https://github.com/leshrike/repartidor_batoilogic)
-[App de tienda -- Vue JS](https://github.com/leshrike/tienda-batoilogic)
-[Estilos y Guia de estilos]()
+[CRUD y Backoffice -- Laravel](https://github.com/leshrike/batoilogic)  
+[App de repartidor -- Vue JS](https://github.com/leshrike/repartidor_batoilogic)  
+[App de tienda -- Vue JS](https://github.com/leshrike/tienda-batoilogic)  
+[Estilos y Guia de estilos](https://github.com/olbapgit/BatoiLogicDiw)  
 
 
 ## Versiones
