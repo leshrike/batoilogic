@@ -11,6 +11,27 @@ Podremos ver todos los pedidos a realizar, añadir productos, editar o añadir p
 Podremos acceder a esta aplicación como repartidores, usuarios normales o administradores, cada tipo de usuario podrá realizar diferentes acciones. Para probar estas funcionalidades, podremos usar unos usuarios de prueba, cuyos credenciales se mostrarán más adelante.
 
 
+## Servidores DDAW
+
+### SSH id_rsa.pub.
+```
+DNS:
+ssh batoilogic@ec2-3-87-12-100.compute-1.amazonaws.com // ssh batoilogic@3.87.12.100
+Base de datos:
+ssh batoilogic@ec2-54-89-160-135.compute-1.amazonaws.com // ssh batoilogic@54.89.160.135
+Web:
+ssh batoilogic@ec2-3-87-71-72.compute-1.amazonaws.com // ssh batoilogic@3.87.71.72
+```
+### IP publicas
+- DNS: 3.87.12.100
+- Servidor de aplicaciones:  54.89.160.135
+- Servidor web: 3.87.71.72
+### Páginas + Enlaces
+[www.g01.batoilogic.es](http:www.g01.batoilogic.es)  
+[reparto.g01.batoilogic.es](http:reparto.g01.batoilogic.es)  
+[backoffice.g01.batoilogic.es](http:backoffice.g01.batoilogic.es)  
+
+
 ## Versiones
 
 Para poner en funcionamiento esta aplicación hemos necesitado las siguientes aplicaciones o librerías :
