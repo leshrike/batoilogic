@@ -11,11 +11,41 @@ Podremos ver todos los pedidos a realizar, añadir productos, editar o añadir p
 Podremos acceder a esta aplicación como repartidores, usuarios normales o administradores, cada tipo de usuario podrá realizar diferentes acciones. Para probar estas funcionalidades, podremos usar unos usuarios de prueba, cuyos credenciales se mostrarán más adelante.
 
 
+## Servidores DDAW
+
+### SSH id_rsa.pub.
+```
+DNS:
+ssh batoilogic@ec2-3-87-12-100.compute-1.amazonaws.com // ssh batoilogic@3.87.12.100
+Base de datos:
+ssh batoilogic@ec2-54-89-160-135.compute-1.amazonaws.com // ssh batoilogic@54.89.160.135
+Web:
+ssh batoilogic@ec2-3-87-71-72.compute-1.amazonaws.com // ssh batoilogic@3.87.71.72
+```
+### IP publicas
+- DNS: 3.87.12.100
+- Servidor de aplicaciones:  54.89.160.135
+- Servidor web: 3.87.71.72
+### Páginas + Enlaces
+[www.g01.batoilogic.es](http:www.g01.batoilogic.es)  
+[reparto.g01.batoilogic.es](http:reparto.g01.batoilogic.es)  
+[backoffice.g01.batoilogic.es](http:backoffice.g01.batoilogic.es)
+
+
+## Todos los repositorios del proyecto:
+ 
+[CRUD y Backoffice -- Laravel](https://github.com/leshrike/batoilogic)  
+[App de repartidor -- Vue JS](https://github.com/leshrike/repartidor_batoilogic)  
+[App de tienda -- Vue JS](https://github.com/leshrike/tienda-batoilogic)  
+[Estilos y Guia de estilos](https://github.com/olbapgit/BatoiLogicDiw)  
+
+
 ## Versiones
 
 Para poner en funcionamiento esta aplicación hemos necesitado las siguientes aplicaciones o librerías :
 
 ### Aplicaciones o servicios de Servidor:
+```yaml
 
 -**Ubuntu** ubuntu 20.04 // Las instancias seleccionadas en las que funcionan las app y servicios.
 
@@ -28,9 +58,10 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**php:** php 7.4.3 // Lenguaje de programación
 
 -**php-fpm:** php7.4-fpm // Intérprete del lenguaje PHP
-
+```
 
 ### Librerías o dependencias utilizadas en el Backoffice de Batoilogic
+```yaml
 
 -**laravel**: laravel 8.12 // framework en el cual ha sido creada la app
 
@@ -53,7 +84,7 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**livewire** laravel/livewire 2.0
 
 -**tailwindcss** 2.0.1 // framework css que utiliza jetstream por defecto
- 
+ ```
 
 ## Usuarios para probar las funcionalidades
 
