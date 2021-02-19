@@ -14,8 +14,8 @@ add('writable_dirs', []);
 
 host('3.87.71.72')
     ->user('batoilogic')
-    ->identityFile('~/.ssh/id_rsa.pub')
-    ->set('deploy_path', '/var/www/batoilogic/002-batoilogic-backoffice');
+    ->identityFile('/home/batoilogic/.ssh/id_rsa.pub')
+    ->set('deploy_path', '/var/www/batoilogic/002-batoilogic-backoffice/batoilogic');
 
 // Task
 task('build',function(){
