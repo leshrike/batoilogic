@@ -5,6 +5,50 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Sign in",
+                "description": "Login by email, password",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/order": {
             "get": {
                 "tags": [
@@ -1301,17 +1345,16 @@
                     "name": {
                         "type": "string",
                         "readOnly": "true",
-                        "example": "6"
+                        "example": "Sandra Walter"
                     },
                     "email": {
                         "type": "string",
                         "readOnly": "true",
-                        "example": "5"
+                        "example": "example@batoilogic.com"
                     },
                     "password": {
                         "type": "string",
-                        "readOnly": "true",
-                        "example": "1"
+                        "readOnly": "true"
                     },
                     "role": {
                         "description": "Specifies the role of the user in the app",
@@ -1328,6 +1371,11 @@
                         "description": "location where th user's profile photo can be found",
                         "type": "string",
                         "readOnly": "true"
+                    },
+                    "address": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "Big Sad Street"
                     }
                 },
                 "type": "object",
@@ -1524,6 +1572,21 @@
             }
         },
         "responses": {
+            "200": {
+                "description": "Success",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "user": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
             "403": {
                 "description": "Forbidden"
             }
