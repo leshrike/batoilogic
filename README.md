@@ -16,6 +16,7 @@ Podremos acceder a esta aplicación como repartidores, usuarios normales o admin
 Para poner en funcionamiento esta aplicación hemos necesitado las siguientes aplicaciones o librerías :
 
 ### Aplicaciones o servicios de Servidor:
+```yaml
 
 -**Ubuntu** ubuntu 20.04 // Las instancias seleccionadas en las que funcionan las app y servicios.
 
@@ -30,7 +31,10 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**php-fpm:** php7.4-fpm // Intérprete del lenguaje PHP
 
 
+```
+
 ### Librerías o dependencias utilizadas en el Backoffice de Batoilogic
+```yaml
 
 -**laravel**: laravel 8.12 // framework en el cual ha sido creada la app
 
@@ -53,7 +57,7 @@ Para poner en funcionamiento esta aplicación hemos necesitado las siguientes ap
 -**livewire** laravel/livewire 2.0
 
 -**tailwindcss** 2.0.1 // framework css que utiliza jetstream por defecto
- 
+ ```
 
 ## Usuarios para probar las funcionalidades
 
