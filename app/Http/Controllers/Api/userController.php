@@ -22,7 +22,7 @@ class userController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/Users",
+         * path="/api/User",
          * summary="Gets all Users",
          * description="Obtains all Users that are stored in the database",
          * operationId="getUsers",
@@ -72,7 +72,7 @@ class userController extends Controller
 
      /**
          * @OA\Post(
-         * path="/api/Users",
+         * path="/api/User",
          * summary="Add a User",
          * description="Store a new User in the database",
          * operationId="postUser",
@@ -81,7 +81,7 @@ class userController extends Controller
          * @OA\RequestBody(
          *    required=true,
          *    description="Posting a User",
-         *    @OA\JsonContent(ref="#/components/schemas/User"),
+         *    @OA\JsonContent(ref="#/components/schemas/userResource"),
          * ),
          * 
          * @OA\Response(
@@ -109,21 +109,22 @@ class userController extends Controller
          * )
          */
 
-    public function show(User $user)
-    {  
-       return response()->json($user,200);
+    public function show($id)
+    {   
+        $user = User::findOrFail($id);
+        return response()->json($user,200);
     }
 
     /**
          * @OA\Get(
-         * path="/api/Users/{id}",
+         * path="/api/User/{id}",
          * summary="Show an User",
          * description="Show an User stored in the database",
          * operationId="showUser",
          * tags={"Users"},
          * @OA\RequestBody(
          *    required=true,
-         *    description="Posting a User",
+         *    description="Posting an User",
          *    @OA\JsonContent(
          *       required={"id"},
          *       @OA\Property()
@@ -133,7 +134,7 @@ class userController extends Controller
          * @OA\Response(
          *      response=201,
          *      description="Success",
-         *      @OA\JsonContent(ref="#/components/schemas/User")),
+         *      @OA\JsonContent(ref="#/components/schemas/userResource")),
          *      
          * ),
          * )
@@ -156,7 +157,7 @@ class userController extends Controller
 
     /**
          * @OA\Put(
-         * path="/api/Users/{id}",
+         * path="/api/User/{id}",
          * summary="Edits an user",
          * description="Overwrites an user stored in the database",
          * operationId="updateUser",
@@ -167,7 +168,7 @@ class userController extends Controller
          * @OA\Response(
          *      response=200,
          *      description="Success",
-         *      @OA\JsonContent(ref="#/components/schemas/User"),
+         *      @OA\JsonContent(ref="#/components/schemas/userResource"),
          * ),
          * @OA\Response(
          *      response=401,
@@ -191,7 +192,7 @@ class userController extends Controller
 
       /**
          * @OA\Delete(
-         * path="/api/Users/{id}",
+         * path="/api/User/{id}",
          * summary="Deletes an User",
          * description="Deletes an User stored in the database",
          * operationId="deletesUser",

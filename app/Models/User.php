@@ -14,7 +14,7 @@ use Laravel\Sanctum\HasApiTokens;
  *
  * @OA\Schema(
  * 
- * required={"id,name,password,email"},
+ * required={"id,title"},
  * @OA\Xml(name="user"),
  * @OA\Property(property="id", type="integer", readOnly="true", example="1"),
  * @OA\Property(property="name", type="string", readOnly="true", example="Sandra Walter"),
@@ -77,10 +77,6 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
-        'remember_token',
-        'name',
-        'email',
-        
     ];
 
     public function address(){
