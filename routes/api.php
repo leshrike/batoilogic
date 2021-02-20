@@ -15,10 +15,9 @@ use Api\LoginController;
 |
 */
 Route::post('login', 'Api\LoginController@login');
-Route::apiResource('address',Api\addressController::class); // quizas lo eliminamos
-Route::apiResource('order',Api\orderController::class);
-Route::apiResource('orderline',Api\orderlineController::class);
-Route::apiResource('product',Api\productController::class);
-Route::apiResource('provider',Api\providerController::class);
-Route::apiResource('state',Api\stateController::class);
-Route::apiResource('User',Api\userController::class);
+Route::apiResource('orders',Api\orderController::class);
+Route::apiResource('orderlines',Api\orderlineController::class);
+Route::apiResource('products',Api\productController::class);
+Route::apiResource('providers',Api\providerController::class);
+Route::apiResource('states',Api\stateController::class);
+Route::apiResource('Users',Api\userController::class);
