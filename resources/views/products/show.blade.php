@@ -7,7 +7,7 @@
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <!-- Imagen del producto -->
             <div class="my-1 px-2 w-full md:w-1/2 lg:px-3 lg:w-1/3">
-                <img alt="{{ $product->name }}" src="/storage/{{ $product->photo }}" name="product_photo" >
+                <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}" name="foto del producto {{ $product->id }}" >
             </div>
             <!-- Campos varios del producto -->
             <div class="my-1 px-2 w-full md:w-1/2 lg:px-3 lg:w-1/3">

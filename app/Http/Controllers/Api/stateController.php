@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\state;
 use Illuminate\Http\Request;
-use App\Http\Resources\storeResource;
+use App\Http\Resources\statesResource;
 
 class stateController extends Controller
 {
@@ -16,7 +16,7 @@ class stateController extends Controller
     
     public function index()
     {
-        return stateResource::collection(state::get());
+        return statesResource::collection(state::get());
     }
 
     /**

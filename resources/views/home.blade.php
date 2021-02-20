@@ -13,18 +13,18 @@
         <div class="flex space-x-4 ">
 
             <div class="flex-1 ">
-                <img class="w-auto h-auto justify-center"src="https://via.placeholder.com/400"/>
+                <img class="w-auto h-auto justify-center"src="https://via.placeholder.com/400" alt="Ver pedidos"/>
                 <p class="text-bold text-center w-full"><a class="text-blue-400" href="pedidos">Ver pedidos</a></p>
             </div>
             
             <div class="flex-1">
-                <img class="w-auto h-auto" src="https://via.placeholder.com/400"/>
+                <img class="w-auto h-auto" src="https://via.placeholder.com/400" alt="Ver productos"/>
                 <p class="text-bold text-center"><a class="text-blue-400" href="productos">Ver productos</a></p>
             </div>
             
             <div class="flex-1">
                 <div class="bg-white">
-                <img class="w-auto h-auto" src="https://via.placeholder.com/400"/>
+                <img class="w-auto h-auto" src="https://via.placeholder.com/400" alt="Ver proveedores"/>
                 <p class="text-bold text-center"><a class="text-blue-400" href="proveedores">Ver proveedores</a></p>
                 </div>
         </div>
@@ -86,7 +86,7 @@
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                         <!-- Imagen del producto -->
                         <div class="my-1 px-2 w-full md:w-1/2 lg:px-1 lg:w-1/2">
-                            <img alt="servicios" src="https://via.placeholder.com/400" name="servicio" >
+                            <img alt="servicios" src="https://via.placeholder.com/400" name="servicio" alt="Otros servicios">
                         </div>
                         <!-- Campos varios del producto -->
                         <div class="my-1 px-2 w-full md:w-1/2 lg:px-1 lg:w-1/2 float-right bg-white text-center">

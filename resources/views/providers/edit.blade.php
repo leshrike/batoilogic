@@ -15,7 +15,7 @@
 
             <label class="block text-gray-700 inline-flex">Nombre del proveedor</label>
 
-            <input id="name" name="name" class="form-input mt-1 block w-full" value="{{ old('name') }}" type="text"></input>
+            <input id="name" name="name" class="form-input mt-1 block w-full" value="{{ $provider->name }}" type="text"></input>
     
         </div>
         
@@ -25,7 +25,7 @@
 
             <label class="inline-flex text-gray-700">Email</label>
 
-           <input id="email" name="email" class="form-input mt-1 block w-full" type="email" placeholder="ejemplo@ejemplo.com" value="{{ old('email') }}"></input>
+           <input id="email" name="email" class="form-input mt-1 block w-full" type="email" placeholder="ejemplo@ejemplo.com" value="{{ $provider->email }}"></input>
 
         </div>
 
@@ -35,7 +35,7 @@
 
             <label class="block inline-flex text-gray-700">Telefono de contacto</label>
 
-            <input name="phone" id="phone" type="number" value="{{ old('phone') }}"></input>
+            <input name="phone" id="phone" type="number" value="{{ $provider->phone }}"></input>
 
         </div>
 
@@ -46,6 +46,8 @@
             <label class="text-grey-700">Imagen del proveedor</label>
             
             <!-- Botón para añadir imagen -->
+
+            <img src ="{{ asset($provider->logo) }}">
 
             <input type="file" name="logo" id="logo" class="custom-file-input">
 

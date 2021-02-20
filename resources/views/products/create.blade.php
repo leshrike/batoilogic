@@ -15,7 +15,7 @@
         <!-- Formulario Nombre -->
         <div class="mt-4">
 
-            <label class="block text-gray-700 inline-flex">Nombre del producto</label>
+            <label for="name" class="block text-gray-700 inline-flex">Nombre del producto</label>
 
             <input name="name" id="name" class="form-input mt-1 block w-full" placeholder="nombre de producto" type="text"></input>
     
@@ -25,7 +25,7 @@
 
         <div class="mt-4">
 
-            <label class="inline-flex text-gray-700">Descripcion del producto</label>
+            <label for="description" class="inline-flex text-gray-700">Descripcion del producto</label>
 
             <textarea id="description" name="description" rows="10" cols="100">{{ old("description") }}</textarea>
 
@@ -35,7 +35,7 @@
 
         <div class="mt-4">
 
-            <label class="block inline-flex text-gray-700">Precio del producto:</label>
+            <label for="price" class="block inline-flex text-gray-700">Precio del producto:</label>
 
             <input id="price" name="price" class="" type="number"></input>
 
@@ -44,7 +44,7 @@
         <!-- Formulario Stock -->
         <div class="mt-4">
 
-            <label id="stock" name="stock" class="block inline-flex text-gray-700">Stock:</label>
+            <label for="number" id="stock" name="stock" class="block inline-flex text-gray-700">Stock:</label>
 
             <input class="" type="number"></input>
 
@@ -53,7 +53,7 @@
         <!-- Formulario Available -->
         <div class="mt-4">
 
-            <label class="text-gray-700 inline-flex">¿Está disponible?</label>
+            <label for="active" class="text-gray-700 inline-flex">¿Está disponible?</label>
 
             <div class="mt-2">
                 <input type="radio" class="form-radio" name="active" value="1">
@@ -71,7 +71,7 @@
         
         <div class="block mt-4">
 
-            <label class="text-gray-700">Proveedores:</label>
+            <label for="id_provider" class="text-gray-700">Proveedores:</label>
 
             <select name="id_provider" id="id_provider" class="form-select mt-1 block w-full">
             
@@ -89,14 +89,13 @@
 
         <div class="block mt-4">
 
-            <label  id="chooseFile" class="text-grey-700">Selecciona una imagen para el producto</label>
+            <label for="photo" id="chooseFile" class="text-grey-700">Selecciona una imagen para el producto</label>
             
             <!-- Botón para añadir imagen -->
 
             <input type="file" name="photo" id="photo" class="custom-file-input">
 
-
-
         </div>
+        
         <input type="submit" class="object-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
 </div>

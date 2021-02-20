@@ -19,7 +19,7 @@
 
             <label class="block text-gray-700 inline-flex">Nombre del producto</label>
 
-            <input name="name" id="name" class="form-input mt-1 block w-full" value="{{ old('name') }}" type="text"></input>
+            <input name="name" id="name" class="form-input mt-1 block w-full" value="{{ $product->name }}" type="text"></input>
     
         </div>
         
@@ -29,7 +29,7 @@
 
             <label class="inline-flex text-gray-700">Descripcion del producto</label>
 
-            <textarea id="description" name="description" rows="10" cols="100">{{ old("description") }}</textarea>
+            <textarea id="description" name="description" rows="10" cols="100">{{ $product->description }}</textarea>
 
         </div>
 
@@ -39,7 +39,7 @@
 
             <label class="block inline-flex text-gray-700">Precio del producto:</label>
 
-            <input id="price" name="price" class="" type="number" value="{{ old('price') }}"></input>
+            <input id="price" name="price" class="" type="number" value="{{ $product->price }}"></input>
 
         </div>
 
@@ -48,7 +48,7 @@
 
             <label class="block inline-flex text-gray-700">Stock:</label>
 
-            <input id="stock" name="stock" class="" type="number" value="{{ old('stock') }}"></input>
+            <input id="stock" name="stock" class="" type="number" value="{{ $product->stock }}"></input>
 
         </div>
 
@@ -94,6 +94,7 @@
             <label class="text-grey-700">Imagen del producto</label>
             
                 <!-- Botón para añadir imagen -->
+            <img src="{{ $product->photo }}" alt="imagen del producto {{ $product->id }}">
             
             <input type="file" id="photo" name="photo" class="custom-file-input">
 
