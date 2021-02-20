@@ -15,7 +15,8 @@ class orderlineController extends Controller
     }
     
     public function index(){
-        return orderlineResource::collection(orderline::get());
+        $orderlines = orderline::get();
+        return $orderlines;
     }
 
     /**

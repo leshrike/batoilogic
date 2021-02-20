@@ -16,7 +16,8 @@ class stateController extends Controller
     
     public function index()
     {
-        return statesResource::collection(state::get());
+        $states = state::get();
+        return $states;
     }
 
     /**
