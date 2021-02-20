@@ -22,7 +22,7 @@ class orderController extends Controller
 
         /**
          * @OA\Get(
-         * path="/api/order",
+         * path="/api/orders",
          * summary="Gets all orders",
          * description="Obtains all orders that are stored in the database",
          * operationId="getOrders",
@@ -76,7 +76,7 @@ class orderController extends Controller
 
         /**
          * @OA\Post(
-         * path="/api/order",
+         * path="/api/orders",
          * summary="Add an order",
          * description="Store a new order in the database",
          * operationId="postOrder",
@@ -125,7 +125,7 @@ class orderController extends Controller
 
         /**
          * @OA\Get(
-         * path="/api/order/{id}",
+         * path="/api/orders/{id}",
          * summary="Show an order",
          * description="Show an order stored in the database",
          * operationId="showOrder",
@@ -169,7 +169,7 @@ class orderController extends Controller
     }
     /**
          * @OA\Put(
-         * path="/api/order/{id}",
+         * path="/api/orders/{id}",
          * summary="Edits an order",
          * description="Overwrites an order stored in the database",
          * operationId="updateOrder",
@@ -200,7 +200,7 @@ class orderController extends Controller
     }
         /**
          * @OA\Delete(
-         * path="/api/order/{id}",
+         * path="/api/orders/{id}",
          * summary="Deletes an order",
          * description="Deletes an order stored in the database",
          * operationId="deletesOrder",

@@ -49,7 +49,7 @@
                 }
             }
         },
-        "/api/order": {
+        "/api/orders": {
             "get": {
                 "tags": [
                     "orders"
@@ -154,7 +154,7 @@
                 ]
             }
         },
-        "/api/order/{id}": {
+        "/api/orders/{id}": {
             "get": {
                 "tags": [
                     "orders"
@@ -268,7 +268,7 @@
                 ]
             }
         },
-        "/api/orderline": {
+        "/api/orderlines": {
             "get": {
                 "tags": [
                     "orderlines"
@@ -373,7 +373,7 @@
                 ]
             }
         },
-        "/api/orderline/{id}": {
+        "/api/orderlines/{id}": {
             "get": {
                 "tags": [
                     "orderlines"
@@ -487,7 +487,7 @@
                 ]
             }
         },
-        "/api/product": {
+        "/api/products": {
             "get": {
                 "tags": [
                     "products"
@@ -592,7 +592,7 @@
                 ]
             }
         },
-        "/api/product/{id}": {
+        "/api/products/{id}": {
             "get": {
                 "tags": [
                     "products"
@@ -706,7 +706,7 @@
                 ]
             }
         },
-        "/api/provider": {
+        "/api/providers": {
             "get": {
                 "tags": [
                     "providers"
@@ -811,7 +811,7 @@
                 ]
             }
         },
-        "/api/provider/{id}": {
+        "/api/providers/{id}": {
             "get": {
                 "tags": [
                     "providers"
@@ -925,7 +925,7 @@
                 ]
             }
         },
-        "/api/state": {
+        "/api/states": {
             "get": {
                 "tags": [
                     "states"
@@ -966,7 +966,7 @@
                 }
             }
         },
-        "/api/state/{id}": {
+        "/api/states/{id}": {
             "get": {
                 "tags": [
                     "states"
@@ -1005,7 +1005,7 @@
                 }
             }
         },
-        "/api/User": {
+        "/api/Users": {
             "get": {
                 "tags": [
                     "Users"
@@ -1058,7 +1058,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/userResource"
+                                "$ref": "#/components/schemas/User"
                             }
                         }
                     }
@@ -1107,7 +1107,7 @@
                 ]
             }
         },
-        "/api/User/{id}": {
+        "/api/Users/{id}": {
             "get": {
                 "tags": [
                     "Users"
@@ -1116,7 +1116,7 @@
                 "description": "Show an User stored in the database",
                 "operationId": "showUser",
                 "requestBody": {
-                    "description": "Posting an User",
+                    "description": "Posting a User",
                     "required": true,
                     "content": {
                         "application/json": {
@@ -1138,7 +1138,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/userResource"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -1158,7 +1158,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/userResource"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -1334,7 +1334,7 @@
             },
             "User": {
                 "required": [
-                    "id,title"
+                    "id,name,password,email"
                 ],
                 "properties": {
                     "id": {

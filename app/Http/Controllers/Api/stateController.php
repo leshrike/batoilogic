@@ -21,7 +21,7 @@ class stateController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/state",
+         * path="/api/states",
          * summary="Gets all states",
          * description="Obtains all states that are stored in the database",
          * operationId="getstates",
@@ -61,7 +61,7 @@ class stateController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/state/{id}",
+         * path="/api/states/{id}",
          * summary="Show an state",
          * description="Show an state stored in the database",
          * operationId="showstate",

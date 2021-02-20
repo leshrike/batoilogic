@@ -22,7 +22,7 @@ class productController extends Controller
 
      /**
          * @OA\Get(
-         * path="/api/product",
+         * path="/api/products",
          * summary="Gets all products",
          * description="Obtains all products that are stored in the database",
          * operationId="getProducts",
@@ -78,7 +78,7 @@ class productController extends Controller
 
         /**
          * @OA\Post(
-         * path="/api/product",
+         * path="/api/products",
          * summary="Add an product",
          * description="Store a new product in the database",
          * operationId="postproduct",
@@ -130,7 +130,7 @@ class productController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/product/{id}",
+         * path="/api/products/{id}",
          * summary="Show a product",
          * description="Show a product stored in the database",
          * operationId="showproduct",
@@ -177,7 +177,7 @@ class productController extends Controller
     }
     /**
          * @OA\Put(
-         * path="/api/product/{id}",
+         * path="/api/products/{id}",
          * summary="Edits a product",
          * description="Overwrites a product stored in the database",
          * operationId="updateproduct",
@@ -213,7 +213,7 @@ class productController extends Controller
 
     /**
          * @OA\Delete(
-         * path="/api/product/{id}",
+         * path="/api/products/{id}",
          * summary="Deletes a product",
          * description="Deletes a product stored in the database",
          * operationId="deletesproduct",

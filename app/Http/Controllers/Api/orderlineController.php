@@ -20,7 +20,7 @@ class orderlineController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/orderline",
+         * path="/api/orderlines",
          * summary="Gets all orderlines",
          * description="Obtains all orderlines that are stored in the database",
          * operationId="getOrderlines",
@@ -70,7 +70,7 @@ class orderlineController extends Controller
 
     /**
          * @OA\Post(
-         * path="/api/orderline",
+         * path="/api/orderlines",
          * summary="Add an orderline",
          * description="Store a new orderline in the database",
          * operationId="postOrderline",
@@ -120,7 +120,7 @@ class orderlineController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/orderline/{id}",
+         * path="/api/orderlines/{id}",
          * summary="Show an orderline",
          * description="Show an orderline stored in the database",
          * operationId="showOrderline",
@@ -161,7 +161,7 @@ class orderlineController extends Controller
 
     /**
          * @OA\Put(
-         * path="/api/orderline/{id}",
+         * path="/api/orderlines/{id}",
          * summary="Edits an orderline",
          * description="Overwrites an orderline stored in the database",
          * operationId="updateOrderline",
@@ -196,7 +196,7 @@ class orderlineController extends Controller
 
      /**
          * @OA\Delete(
-         * path="/api/orderline/{id}",
+         * path="/api/orderlines/{id}",
          * summary="Deletes an orderline",
          * description="Deletes an orderline stored in the database",
          * operationId="deletesOrderline",

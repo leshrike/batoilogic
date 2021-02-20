@@ -20,7 +20,7 @@ class providerController extends Controller
 
      /**
          * @OA\Get(
-         * path="/api/provider",
+         * path="/api/providers",
          * summary="Gets all providers",
          * description="Obtains all providers that are stored in the database",
          * operationId="getProviders",
@@ -72,7 +72,7 @@ class providerController extends Controller
 
     /**
          * @OA\Post(
-         * path="/api/provider",
+         * path="/api/providers",
          * summary="Add a provider",
          * description="Store a new provider in the database",
          * operationId="postprovider",
@@ -121,7 +121,7 @@ class providerController extends Controller
 
     /**
          * @OA\Get(
-         * path="/api/provider/{id}",
+         * path="/api/providers/{id}",
          * summary="Show a provider",
          * description="Show a provider stored in the database",
          * operationId="showProvider",
@@ -167,7 +167,7 @@ class providerController extends Controller
 
         /**
          * @OA\Put(
-         * path="/api/provider/{id}",
+         * path="/api/providers/{id}",
          * summary="Edits a provider",
          * description="Overwrites a provider stored in the database",
          * operationId="updateProvider",
@@ -202,7 +202,7 @@ class providerController extends Controller
 
      /**
          * @OA\Delete(
-         * path="/api/provider/{id}",
+         * path="/api/providers/{id}",
          * summary="Deletes an provider",
          * description="Deletes a provider stored in the database",
          * operationId="deletesprovider",
