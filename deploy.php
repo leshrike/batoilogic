@@ -19,9 +19,17 @@ task('build',function(){
 task('php-fpm:restart', function () {
     run('sudo /etc/init.d/php7.4-fpm restart');
 });
+
 after('deploy:symlink', 'php-fpm:restart');
 task('artisan:optimize',function(){});
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 before('deploy:symlink', 'artisan:migrate');
+
+//desc('Ejecuta las migraciones en base a los seeders');
+//task('artisan:migrate:fresh',function(){
+//	run('{{bin/php}} {{release_path}}/artisan migrate:fresh --seed --force');
+//});
+
+//before('deploy:symlink','artisan:migrate:fresh');
