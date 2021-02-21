@@ -15,8 +15,7 @@ class providerController extends Controller
     
     public function index(){
 
-        $providers = provider::get();
-        return $providers;
+        return providerResource::collection(provider::get());
     }
 
      /**

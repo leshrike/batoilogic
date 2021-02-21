@@ -17,8 +17,7 @@ class orderController extends Controller
 
     public function index()
     {
-        $orders = order::get();
-        return $orders;
+        return orderResource::collection(Order::get());
     }
 
         /**
