@@ -10,6 +10,13 @@ use App\Models\provider;
 @section('contenido')
 
     <div class="container my-12 mx-auto px-4 md:px-12">
+    @if (auth()->user()->role === 'admin')
+        
+        <a class="object-right bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="/proveedores/crear">
+                  Añadir producto
+              </a>
+        
+        @endif
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             @forelse($products as $product)
                 
